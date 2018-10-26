@@ -1,0 +1,448 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 29, 2018, 9:44:14 AM
+    Author     : Моргунов Виталий
+*/
+
+/*Страница Все курсы */
+/* скрываем ярлык Рубрики */
+.buddyboss-select label {
+    display: none;
+}
+
+/**
+*   Карточки курса
+*/
+
+/**
+* Скрываем автора курса
+*/
+.sensei-course-meta .course-author {
+    display: none;
+}
+/* Скрываем аватар автора на карточке курса при наведении  */
+.course-overlay img.avatar {
+    display: none;
+}
+/* класс группы курса в теге body .groups */
+
+/* Скрываем таб Курс в навигации группы курса */
+.groups.single-item #object-nav li#nav-experiences-groups-li {
+    display: none;
+}
+/* Скрываем таб Главная в навигации главной стриницы курса */ 
+.single.single-sfwd-courses li#home-groups-li {
+    display: none;
+}
+/* Скрываем из виджета учитель курса все кроме кнопки пеерхода на главную страницу курса */
+.widget_course_teacher header {
+    display: none;
+}
+
+/* класс главной страницы курса в теге body .groups .single-sfwd-courses */
+
+/* Меняем оформление виджета Курс прогресс  */
+.widget_sensei_course_progress header, #my-courses .meter > span,
+.widget_course_progress .widgettitle,
+.widget-area .widget.widget_course_progress .course-lessons-widgets > header,
+.widget_course_progress .course_stats {
+    background-color: #ffffff;
+}
+/* Название курса виджета Курс прогресс */
+.widget-area .widget.widget_course_progress h3 a,
+.widget_course_progress .widgettitle {
+    color: $main_link_color;
+}
+
+/* Статистика прогресса виджета Курс прогресс */
+.widget_course_progress .course-completion-rate,
+.widget-area .widget.widget_course_progress .percent,
+.widget-area .widget.widget_course_progress h3{
+   color: $main_text_color; 
+}
+/* Исправляем кривые стрелочки в перечне тем и уроков в виджете Курс прогресс */
+.list_arrow .fa {
+    top: 0px;
+    left: 0px;
+}
+.bb-lesson-list-item .list_arrow {
+    height: 25px;
+    width: 25px;
+} 
+/* Исправляем кривые стрелочки в перечне тем и уроков в виджете Курс прогресс */
+/* Скрываем информацию о курсе */
+.widget-area footer h4,
+.widget-area footer p:not(.bp-group-discussion){
+    display:none;
+}
+
+.widget_course_progress footer span,
+.widget_course_progress footer img.avatar {
+    display: none;
+}
+
+/* Курс Cетка курсов Course grid попытка выравнить размер карточки */
+.course-flexible-area header h2 {
+    min-height : 67px;
+    font-weight: bold;
+}
+a.course-cover-image img {
+    max-height: 187px;
+}
+.caption {
+    min-height: 90px;
+}
+/* / Курс Cетка курсов Course grid попытка выравнить размер карточки */
+
+/* LearnDash  кнопка Подробнее карточки курса */
+#course-details #btn-join, #learndash_course_certificate,
+#learndash_course_status, .sfwd-courses a.button,
+.sfwd-lessons a.button, .type-sfwd-courses a.button,
+.type-sfwd-lessons a.button{
+    @include mix-button-alternative;
+    &:hover{
+        @include mix-button-alternative-hover;  
+    }
+}
+/* Цвет ленточки статуса на карточке курса */
+.course-inner .price {
+    background: $main_color; /* !important */
+}
+
+/* Заголовок название курса карточки курса */
+.ld-course-list-content h2 a {
+    font-size: 20px;
+    letter-spacing: -1px;
+    font-weight: 500;
+}
+
+
+/**
+*   Главная страница курса
+*/
+
+/* Страница курса - мииатюра курса */
+.single-sfwd-courses .course-header .image img {
+    border: none;
+}
+
+/* Скрываем кнопку Группа курса внизу и в виджете */
+p.bp-group-discussion {
+    /*    display: none;*/
+}
+
+/* Кнопка начать xAPI урок-презентацию  */
+a.nivo_iframe {
+    color: $alternative_button_text_color;
+    background-color: $alternative_button_color;
+    padding: 10px 40px;
+    border-radius: 5px;
+    &:hover{
+        color: $alternative_button_hover_text_color; 
+        background-color: $alternative_button_hover_color;
+    }
+}
+
+/*  Главная страница курса Переключатели Развернуть все Свернуть все  */
+.expand_collapse a {
+    color: $main_table_header_link_color;
+    &:hover {
+        color:$main_table_header_link_hover_color;
+        opacity: 0.65;
+    }
+}
+
+
+/* Цвета стрелок в таблице описания курса  */
+#learndash_profile #course_list>div>div{
+    color: $main_color;
+}
+
+/* Цвет полосы прогресса в таблице описания курсов */
+dd.course_progress div.course_progress_blue{
+    background-color: $main_color;
+}
+
+/* цвет заглавных строк таблиц learnDash списка курсов */
+/* прогресс курса*/
+#learndash_profile .learndash_profile_heading.course_overview_heading {
+    /* background-color: #d5fbe2; */
+    /*    background-color: #7ed9b2; 
+    color: white;*/
+    @include mixtable-head;
+    font-weight: bold;
+
+}
+/* результаты тестов */
+.learndash_profile_quizzes>.learndash_profile_quiz_heading>div {
+    background-color: $alternative_table_header_color; /* #efefef; */
+}
+
+
+/* Курс метки рубрик на странице курса */
+
+ul.post-categories a::before {
+    @include mixfont-family-icon;
+    content: '\f02c';
+    margin-right: 5px;
+}
+
+/* стилизуем кнопку отправить сообщение учителю  */
+a.button.send-message-button {
+
+    @include mix-button-alternative;
+    &:hover{
+        @include mix-button-alternative-hover;  
+    }
+}
+/*  Submit Кнопка отправить  */
+.widget_course_teacher input[type=submit].boss-edu-send-message-widget{
+    @include mix-button-alternative;
+
+    &:hover{
+        @include mix-button-alternative-hover;  
+    }
+}
+
+/**
+*   Исправляем размер видеороликов на страницах курса
+*/
+.wp-video,
+.wp-video .wp-video-shortcode mejs-video,
+.single-sfwd-lessons .lms-post-content > p + div,
+.single-sfwd-lessons .lms-post-content > p + div div.mejs-container {
+    width: 100%!important;
+}
+ 
+/* Навигация по курсу кнопки следующий урок тема */
+a.next-link,
+a.prev-link{
+    background-color: $bright_button_color;
+    padding: 10px 30px;
+    line-height: 45px;
+    border-radius: 50px;
+    color: $bright_button_text_color;
+}
+
+a.next-link:hover,
+a.prev-link:hover{
+   background-color: $bright_button_hover_color;
+   color: $bright_button_hover_text_color; 
+}
+
+/* Icon course or module completed */
+#learndash_profile #course_list h4>a.completed:after,
+.ld-item .completed:before,
+.learndash .completed:before,
+.learndash .topic-completed:before {
+    color: #35c486; /* !important */
+}
+
+.learndash_profile_quizzes .failed .scores,
+.learndash_profile_quizzes .passed .scores {
+    color: #35c486; /* !important */
+}
+
+.learndash_profile_quizzes .passed_icon:before {
+    color: #35c486; /* !important */
+}
+
+/* Курс значки состояния выполнения курса */
+/* Icon course or module notcompleted */
+#learndash_profile #course_list h4>a.notcompleted:after,
+.ld-item .notcompleted:before,
+.learndash .notcompleted:before,
+.learndash .topic-notcompleted:before {
+    color: $main_color;
+    /*    #2196f3; */
+}
+#learndash_profile #course_list h4>a.in-progress:after,
+.ld-item .in-progress:before,
+.learndash .in-progress:before,
+.learndash .topic-in-progress:before {
+    color: $main_color;
+    /*    #2196f3;*/
+}
+
+/* Курс сайдбар кнопка обсудить курс */
+.widget_course_progress footer a.btn,
+.widget .my-account .button,
+.widget_course_teacher footer a.btn {
+    border-color: $main_button_color;
+    background-color: $main_button_color;
+    line-height: inherit;
+    border: none;    
+}
+.widget_course_progress footer a.btn{
+    color: #fff; /* !important */	
+}
+.bp-group-discussion a.btn.inverse{
+    color: #fff; /* !important */	
+}
+
+/* виджеты навигация курса надпись итогового теста */
+.learndash_navigation_lesson_topics_list {
+    margin-top: $font-size-small;
+}
+/*  иконка  назад в раздел */
+
+.fa-mail-reply:before,
+.fa-reply:before {
+    content: "\f46d"; /* !important f3e5 */
+}
+
+/*  курс заголовки уроков */
+#lesson_heading, #learndash_course_materials h4,
+#quiz_heading{
+
+    @include mixtable-head;
+} 
+
+/*  курс заголовки тем */
+#lessons_list .lesson h4,
+#lessons_list .lesson.has-topics h4{
+    background-color: $alternative_table_header_color; /* !important */
+}
+#lessons_list .lesson h4 a{
+        font-size: 22px;
+    }
+
+/* курс границы строк  заголовков уроков*/
+#learndash_course_materials h4,
+#learndash_lesson_topics_list h2,
+#learndash_uploaded_assignments h2,
+#learndash_uploaded_assignments table td,
+#lesson_heading,
+#lessons_list .lesson h4,
+#lessons_list .lesson.has-topics h4,
+#quiz_heading,
+#quiz_list>div:not(:last-child) h4,
+.ld-item:not(:last-child),
+.learndash_topic_dots.type-list ul li{
+    border-bottom: 1px solid $alternative_table_border_color; /* !important */ /* 1px solid #edfaf4;  */
+
+}
+
+/* Цвет ссылок материалов курса */
+#learndash_course_materials .materials-content, 
+#lessons_list .lesson h4,
+#quiz_list>div h4,
+.ld-item {
+    background-color: #fff; /* !important */  /* #e8ecf2 */
+}
+
+/* курс границы строк тем уроков */
+#learndash_uploaded_assignments table td,
+.learndash_topic_dots.type-list ul li {
+    background-color: #fff;
+    border-left: 20px solid #edfaee;
+    border-bottom: 1px solid #edfaf4;
+}
+
+/*  Курс виджет прогресса раздел навигации по курсу меняем цвета стрелок */
+#course_navigation .learndash_topic_widget_list .topic-completed:after {
+    color: #35c486; /* !important */ 
+    background-color: #35c486; /* !important */ 
+}
+.list_arrow.flippable.lesson_completed.expand {
+    color: #35c486; /* !important */
+    border-color: #35c486; /* !important */
+}
+
+/* Полоса прогресса выполнения курса */
+dd.course_progress {
+    border: none;
+    background-color: #fafafa;
+    margin-top: 15px;
+}
+#course-list-wrap dd.course_progress div.course_progress_blue {
+    background-color: $main_color;
+}
+/* курс виджет прогресса полоса прогресса */
+.widget dd.course_progress div.course_progress_blue {
+    background-color: #efc81c;
+}
+
+
+/* Курс урок кнопка Обсуждение курса */
+p.bp-group-discussion a.button{
+    text-transform: uppercase;
+    white-space: nowrap;    
+}
+
+/*  Курс Урок  Список тем заголовок таблицы */
+#learndash_lesson_topics_list h2{
+    background-color: #edfaee;
+    font-weight: 500;
+}
+
+/* BuddyPress профиль Все курсы надпись заголовка свернуть все развернуть все */
+.bp-user h3 .expand_collapse a{
+    color: $main_link_color;
+    &:hover{
+        color:$main_link_hover_color;        
+    }
+}
+
+/* xAPI презентация кнопка Отметить завершенным */
+#quiz_continue_link,
+#sfwd-mark-complete input[type=submit],
+input[type=button]:not(.button-small).wpProQuiz_button[value="Finish quiz"] {
+    border-color: $alternative_button_color;
+    color: $alternative_button_color;
+    &:hover{
+        border-color: $alternative_button_hover_color;
+        background-color: $alternative_button_hover_color;
+        color: $alternative_button_hover_text_color;
+    }
+}
+
+button[disabled],
+input[disabled],
+textarea[disabled] {
+    /*  background-color: #cac5c4;
+        color: #9b9797;*/
+    opacity: 0.3;
+}
+
+
+/* ??????? стилизуем кнопки в окне сообщений */
+a.button.confirm.mv_delete{
+    @include mix-button-alternative;
+    &:hover{
+        @include mix-button-alternative-hover;
+    }
+}
+a.button.mv_reply{
+    @include mix-button-main;
+    &:hover{
+        @include mix-button-main-hover;
+    }
+}
+
+/**
+* 
+* Курс landing page посадочная страница курса 
+*
+*/
+
+/* кнопка записаться на курс */
+a#btn-join,
+a#btn-join:visited {
+    color: $alternative_button_text_color;
+    background-color: $alternative_button_color;
+    padding: 15px 35px;
+    border-radius: 50px;
+    line-height: inherit;
+}
+a#btn-join:hover,
+a#btn-join:focus,
+a#btn-join:active
+ {
+  color: $alternative_button_hover_text_color;
+  background-color: $alternative_button_hover_color;
+}

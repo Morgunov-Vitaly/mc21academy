@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 16, 2018, 10:39:19 PM
+    Author     : Моргунов Виталий
+*/
+
+
+/**
+* Настройки админки плагина
+*/
+.settings_page_mv_email_admin .form-table th{
+    width: 30%;
+}
+
+.settings_page_mv_email_admin .form-table input,
+.settings_page_mv_email_admin .form-table textarea{
+  width: 70%;  
+}
+
+.settings_page_mv_email_admin .form-table label span{
+    font-weight: 400;
+    background-color: #f9f2c9;
+}

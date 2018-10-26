@@ -1,0 +1,376 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 29, 2018, 9:47:25 AM
+    Author     : Моргунов Виталий
+*/
+
+/* Форма регистрации */
+/* кнопка изменить */
+div#register-page #signup_form.standard-form .visibility-toggle-link {
+    width: 100px;
+    height: 35px;
+}
+
+#profile-details-section fieldset input {
+    margin-bottom: 5px!important;
+}
+
+/* Форма регистрации Дополнительные поля скрываем параметры видимости данных */
+
+.register-section .field-visibility-settings-toggle {
+    display: none;
+}
+.mv-comments{
+    color: $main_color;
+}
+
+/* Группа полей формы регистрации */
+.register-section fieldset{
+    margin-bottom: 30px;
+}
+
+/* скрываем ссылку на дашборд для не админов */
+.no-adminbar div#dashboard-links {
+    display: none;
+}
+
+.register-section fieldset .standard-form input[type=text],
+.register-section fieldset .standard-form input[type=email] {
+    margin-bottom: 15px;
+}
+
+/**
+*  BuddyPress профиль 
+*/
+
+/* Баннер - шапка профиля пользователя */
+.bb-cover-photo{
+    background-color: $bp_user-banner-color;
+}
+/* Иконки соц. сетей */
+body.bp-user #buddypress div#item-header div#item-header-content .btn-group.social {
+    float: none;
+}
+@media screen and (max-width: 420px){
+    body.bp-user #buddypress div#item-header div#item-header-content .btn-group.social {
+        margin-left: 0;
+        margin-top: 10px;
+        float: none;
+    }
+}
+/* Пункты навигации текущий пункт меню */
+#buddypress div#item-nav .item-list-tabs ul li.current>a,
+#buddypress div#item-nav .item-list-tabs ul li:hover>a {
+    color: $bp_link-active-color;    
+}
+
+/* Подчеркивание пунктов меню навигации */
+#buddypress div#item-nav .item-list-tabs>ul>li.current,
+#buddypress div#item-nav .item-list-tabs>ul>li:not(.hideshow):hover{
+    border-bottom: 1px solid $bp_link-hover-color;
+}
+
+/* Цвета кружка уведомления */
+#buddypress div#item-nav .item-list-tabs ul li a span,
+.header-account-login .pop #dashboard-links .menupop a span,
+.header-account-login .pop ul>li>.ab-sub-wrapper>ul li a span{
+    background-color: #6dd7a2;
+}
+
+/* 
+*   BP Мои сообщения
+*/
+
+/* Кнопка написать */
+#compose, .vc_btn3.vc_btn3-color-vista-blue, 
+.vc_btn3.vc_btn3-color-vista-blue.vc_btn3-style-flat,
+input[type="submit"]{
+    @include mix-button-main;   
+    &:hover{
+        @include mix-button-main-hover;  
+    }
+}
+/* BP Мои сообщения кнопка -ссылка управления сообщениями -уведомлениями */
+#message-threads.notices-table a.button{
+    border: none; /* !important */
+    color: #03a9f4; /* !important */
+    background-color: #fff; /* !important */
+}
+/*BP профиль заголовок сообщения */
+h2#message-subject {
+    font-size: $font-size-big; /* !important */
+    font-weight: bold;
+    padding: 25px 0 15px 0;
+}
+
+
+/**
+*   BP профиль лента активности
+*/
+/* краткое описание excerpts */
+p.edu-activity-excerpt {
+    font-size: $font-size-small;
+}
+/* BP профиль лента активности краткое описание доп инфо */
+li.activity-like-count.buddyboss-wall-tt {
+    font-size: $font-size-small;
+}
+
+/*  выделить спрятанную ссылку на сообщение */
+.bbp-meta a.bbp-reply-permalink {
+    color: $main_link_color; /* !important */
+}
+
+/**
+*   Мои Форумы 
+*/	
+
+/* Убираем лишний заголовок */
+h2.entry-title {
+    /* display: none; */
+}
+
+/* Заголовок таблицы со списком форумов */
+#bbpress-forums li.bbp-header,
+#bbpress-forums li.bbp-footer{
+    @include mixtable-head;
+    text-transform: none;
+    padding: 15px 70px;    
+}
+
+
+/* Заголовок со сведениями о форуме */
+.bbp-forum-details {
+    background-color: #f5f5f5;
+}
+/* Псевдокнопка с данными о количестве ответов на форуме */
+.bbp-forum-details .bbp-forum-data .post-num, .bbp-topic-details .bbp-forum-data .post-num{
+    color: $bp_link-color;
+    border: 2px solid $bp_link-color; /* #dfe3e7; */
+}
+
+@media screen and (min-width: 621px){
+    .bbp-topic-details .bbp-forum-data {
+        float: left;
+        text-align: left; 
+    }   
+}
+
+
+/* включаем отображение подвала таблицы моих ответов */
+#bbpress-forums li.bbp-footer {
+    display: list-item; 
+    border: none;	
+}
+
+
+/*  Стилизуем раздел создания новой темы  */
+/* - делаем заметнее заголовок */
+#bbpress-forums fieldset.bbp-form legend {
+
+    width: auto;
+    color: #ffffff;
+    background-color: #35c486;
+    border-radius: 5px;
+    padding: 10px 30px;
+    font-weight: 400;
+    word-break: break-all;
+    font-size: 18px;
+    text-transform: none;
+}
+
+/* Submit Кнопка отправить для формы создания новой темы */
+div.bbp-submit-wrapper button {
+
+    @include mix-button-alternative;
+    &:hover{
+        @include mix-button-alternative-hover;  
+    }
+}
+
+/* стилизуем кнопку отписки подписки на форум */
+.bbp-forum-details #subscription-toggle a {
+    font-weight: 400;
+    font-size: 14px;
+    background-color: $alternative_button_color; /* #03A9F4!important */
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+/* Форум текст ответов */
+.bbp-reply-content.entry-content p, .message-content p {
+    font-size: $font-size-small;
+}
+
+
+
+#buddypress #groups-list div.generic-button a{
+    box-shadow: none; /* !important */
+}
+
+/**
+*   BP Мои курсы 
+*
+*/
+/* заголовок таблицы курсов */
+.learndash_profile_heading {
+    /* background-color: #d5fbe2; */
+    /*    background-color: #7ed9b2;
+    color: white;*/
+    @include mixtable-head;
+}
+
+#learndash_profile .learndash_profile_heading.course_overview_heading {
+    font-weight: 500;
+    font-size: 19px;
+}
+
+/* Надпись ззаголовка Статус */
+.bp-user .learndash_profile_heading .ld_profile_status {
+    line-height: 35px;
+    color: $main_table_header_text_color;
+}
+
+#learndash_profile #course_list>div h4>a {
+    font-size: 20px;
+    font-weight: normal; 
+}
+/**
+*  MEMBERS
+*/
+
+/* Участники Заголовок навигации */
+.dir-form .item-list-tabs ul li.selected a,
+body.activity:not(.bp-user) .item-list-tabs ul li.selected a {
+    color: $main_color;
+}
+
+/*  Скрываем вкладку Leader Group это фиктивная роль для решения задачь Social Learner   */
+// #members-group_leader, #members-student {
+//    display: none ; /* !important */
+//}
+
+/* Кнопки добавления в друзья Раскрашиваем кнопки */
+
+#buddypress div.generic-button a.friendship-button.not_friends.add {
+    background-color: $main_color; 
+}
+
+/* Кружки со счетчиками */
+.dir-form .item-list-tabs ul li a span,
+.item-list li .item-meta .count,
+body.activity:not(.bp-user) .item-list-tabs ul li a span{
+    background-color: $main_color;
+}
+
+/* Кнопка переключения к роли  Switch to */
+#friend-list li .action div.generic-button:nth-child(2n) a,
+#members-list li .action div.generic-button:nth-child(2n) a,
+#members-stream li .action div.generic-button:nth-child(2n) a {
+    color: $main_color;
+    border: 2px solid $main_color;
+}
+
+#buddypress div.activity-comments form input[disabled],
+#buddypress div.generic-button a,
+#buddypress ul.button-nav li a,
+#create-group-form .remove,
+.btn,
+.entry-title a.button,
+.woocommerce #respond input#submit.alt,
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt, .woocommerce a.button.alt:hover,
+.woocommerce button.button.alt, .woocommerce button.button.alt:hover,
+.woocommerce input.button.alt,
+.woocommerce input.button.alt:hover,
+a.button, article.post-password-required input[type=submit],
+body:not(.single-bp_doc) #buddypress .comment-reply-link,
+button,
+input[type=button]:not(.button-small),
+input[type=submit],
+input[type=reset],
+li.bypostauthor cite span,
+span.create-a-group>a{
+    background-color: $main_color;
+}
+
+#buddypress div.generic-button a.pending_friend,
+#buddypress div.generic-button a.is_friend.remove {
+    background-color: $alternative_button_color;
+    color: #fff; /* !important */
+    &:hover{
+        background-color: $alternative_button_hover_color;
+    }
+}
+
+/*  Убираем фон у кнопок добавить, удалить, лайкнуть  */
+a.button.bp-secondary-action{
+    background: transparent; /* !important */
+    padding: 10px; /* !important */
+}
+
+
+/*  Cистемные сообщения в виде инфо-баннеров */
+#buddypress #message.info p,
+#buddypress div#message.updated p {
+    background-color: $message_info;
+    color: #fff;
+}
+div.bbp-template-notice,
+div.indicator-hint {
+    background-color: $message_info;
+}
+
+/* Окно сообщений */
+#bbpress-forums div.bbp-topic-author,
+#bbpress-forums div.bbp-reply-author{
+    width: 100px;
+}
+
+/* Кнопка Написать в Мои сообщения */
+.bp-user.messages #buddypress div#subnav.item-list-tabs ul li:first-child a{
+    color:$alternative_button_text_color;
+    background-color: $alternative_button_color;
+    &:hover{
+        color:$alternative_button_hover_text_color;
+        background-color: $alternative_button_hover_color;  
+    }
+}
+
+/* Указатель-стрелка в кружке в меню Мои сообщения */
+.bp-user.messages #buddypress div#subnav.item-list-tabs ul li.current a:after{
+    background-color: $alternative_button_color;
+    color: $alternative_button_text_color;
+    &:hover{
+        background-color: $alternative_button_hover_color;
+        color: $alternative_button_hover_text_color;
+    }
+}
+
+/* 
+добавляем цветовой стиль 
+для активного пункта меню в профиле пользователя 
+для мобильного тeлефона
+*/
+.is-mobile #buddypress div#subnav.item-list-tabs ul li.current a,
+.is-mobile #buddypress #mobile-item-nav ul li:active,
+.is-mobile #buddypress #mobile-item-nav ul li.current,
+.is-mobile #buddypress #mobile-item-nav ul li.selected {
+    background-color: $alternative_color; /* !important */
+}
+
+/* кнопка-иконка лайк нравится в ленте активности */
+#buddypress #activity-stream .acomment-options .acomment-like.unfav-comment:before,
+#buddypress #activity-stream .activity-meta .unfav.bp-secondary-action:before{
+    color: $alternative_link_color;
+} 
+
+/* количество лайков в ленте активности */
+#buddypress #activity-stream .unfav span{
+    color: $alternative_link_color;
+}

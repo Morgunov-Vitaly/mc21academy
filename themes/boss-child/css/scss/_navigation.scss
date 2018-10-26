@@ -1,0 +1,492 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 29, 2018, 10:39:19 AM
+    Author     : Моргунов Виталий
+*/
+ 
+/**
+*
+*   Шапка - хедер - header
+*
+*/
+/* Log-In Name */
+.header-account-login a {
+    color: $main_nav_text_color;
+    &:hover{
+        color: $main_nav_hover_text_color;
+    }
+}
+/* Кнопка login и register */
+.bbp-logged-in a.button,
+.header-account-login .pop .logout a,
+.right-col .login,
+.right-col .register,
+.widget-area .widget .bp-login-widget-register-link a,
+.widget-area .widget a.sidebar-wp-register,
+.widget-area .widget_bp_core_login_widget a.logout {
+    font-weight: 400;
+    font-size: 12px;
+    background-color: #35c486;
+    color: #fff;
+    padding: 5px 15px;
+    text-transform: none;
+    line-height: normal;
+}
+/* Кнопки Воийти /Выйти иконки */
+a.login:before{
+    content: '\f084';
+    @include mixfont-family-icon; 
+    margin-right: 5px;
+}
+.logout a:before{
+    content: '\f2f5';
+    @include mixfont-family-icon; 
+    margin-right: 5px;
+}
+
+a.register:before{
+    content: '\f234';
+    @include mixfont-family-icon; 
+    margin-right: 5px;
+}
+
+.widget-area .widget #sidebarme ul.sidebarme-quicklinks li.sidebarme-profile a,
+.widget-area .widget_tag_cloud a {
+    @include mix-button-alternative;
+/*    background-color: $dark_background_color;*/
+
+    &:hover{
+        @include mix-button-alternative-hover;
+/*        background-color: $dark_background_hover_color;*/
+    }
+
+}
+
+
+/**
+* главная навигация - меню
+*
+*/
+
+/* Исправляем баги и косяки темы */
+.menu-item.dropdown > a.open-submenu:not(.fa-angle-down){ 
+display:none;
+}
+
+.menu-item-has-children .sub-menu .menu-item-has-children a.open-submenu ~ a.open-submenu{
+display:none!important;
+}
+/* / Исправляем баги и косяки темы */
+
+
+
+/* Пункты меню */
+.header-inner .left-col a,
+.header-navigation ul li a{
+    color: $alternative_text_color;
+    &:hover {
+        color: $alternative_link_color!important;
+    }
+}
+/* активный раздел меню */
+.header-navigation ul li.current-menu-item>a,
+.header-navigation ul li.current-page-item>a {
+    color: $main_color;
+    &:hover {
+        color: $main_icons_color!important;
+    }
+}
+
+/* Верхнее Подчеркивание развернутого подменю */
+.header-navigation .sub-menu,
+.header-navigation li.hideshow>ul{
+    border-top: 1px solid $main_color;
+}
+
+/* основное меню 3-го уровня */
+.header-navigation .sub-menu .sub-menu{
+    margin-top: -36px;
+}
+
+/* Навигация BuddyBoss вверху справа - то что предназначена вместо WP админбара */
+
+#masthead .pop.user-pop-links {
+    height: 80vh;
+}
+/* Фон подменю 1 и  2 го уровня */
+#masthead .pop-inner,
+.header-account-login .pop .bp_components .menupop:not(#wp-admin-bar-my-account):hover > .ab-sub-wrapper,
+.header-account-login .pop .links li:hover > .sub-menu 
+{
+    background-color: $main_right_sub_nav_color;
+    border-top: 1px solid rgba(0,0,0,.11);
+}
+/* Отступы в подменю из-за которых подменю 2 го уровня не с самого верху */
+.header-account-login .pop #dashboard-links,
+.header-account-login .pop .network-menu{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Пункты подменю первого уровня */
+a.ab-item,
+.ab-submenu a {
+    color: $main_right_sub_nav_text_color;
+    &:hover{
+        color: $main_right_sub_nav_hover_text_color;
+    }
+}
+
+/* стрелка ярлыка */
+.header-account-login .pop .bp_components .menupop:not(#wp-admin-bar-my-account)>.ab-sub-wrapper:before,
+.header-account-login .pop .links li>.sub-menu:before{
+    background-color: $main_right_sub_nav_color;
+}
+/* Пункты подменю 2-го уровня */
+.header-account-login .pop #dashboard-links .menupop a, 
+.header-account-login .pop .links li a,
+.header-account-login .pop a,
+.header-account-login .pop ul>li>.ab-sub-wrapper>ul li .ab-item{
+    padding: 10px 27px;
+    line-height: 30px;
+
+}
+
+/* иконка поиска в главном хедере */
+#titlebar-search a {
+    color: $main_nav_text_color;
+}
+/* иконки уведомлений в главном хедере вверху справа */
+#wp-admin-bar-shortcode-secondary .ab-icon:before,
+.header-notifications a.notification-link {
+    color: $main_nav_text_color;
+}
+/* / Цвет иконок */
+
+/* /  Шапка - хедер - header */
+
+
+/* Mobile header */
+.is-mobile #mobile-header,
+.is-mobile .menu-panel{
+    background-color: $main_color; /* !important */
+}
+
+/* searsh button */
+#search-open, .header-account-login .pop .logout a{
+    background-color: $main_nav_hover_color2; /* !important */
+}
+
+/* Сайдбары */
+/* Sidebar  right background and border color  */
+#secondary {
+    border-left: 1px solid #e3e3e3!important; 
+    background-color: #fff; /* !important */
+}
+
+#group-description,
+#secondary.widget-area .widget,
+.secondary-inner #item-actions {
+    border-bottom: 1px solid rgba(0,0,0,.11)!important;
+}
+
+#group-description .inner,
+.single-item.groups #secondary.widget-area .widget>.inner {
+    max-width: 100%;
+}
+
+/* / сайдбары */
+
+/* Панель вверху справа top right header panel */
+.site-header .right-col {
+    color: #fff; /* !important */
+    background-color: $main_nav_color; /* !important */
+}
+
+/*  Logo background */
+#mastlogo, .boxed.is-desktop #mastlogo {
+    background-color: $main_nav_color; /* !important */
+}
+
+
+/* стилизуем иконки писем, уведомлений и корзины в верхнем правом углу хедера  */
+.header-notifications{
+    padding-right: 0;
+}
+
+/* Задаем цвет под логотипом при отключенной ByddyPress панели */
+
+.page-template-page-no-buddypanel .header-inner .search-wrap,
+.page-template-page-no-buddypanel:not(.boxed) .header-inner,
+.page-template-page-no-buddypanel #mastlogo {
+    background-color: $main_color; /* !important */
+}
+
+/*  Меняем иконку юзера в хедере что-то не везде  меняется */
+.fa-user:before {
+    @include mixfont-family-icon;
+    content: "\f2bd"; /* !important */ /* тоже прикольная - из новых ученик в треуголке f501 */
+}
+/* Виджет поиска по форумам BBpress*/
+#bbp-search-index-form {
+    position: relative;
+}
+.widget-area .widget_display_search input[type=submit],
+.widget-area .widget_search input[type=submit]{
+  min-width: 46px;
+}
+
+/*Виджет прогресс курса с Заголовок-ссылка курса */
+.widget-area .widget.widget_course_progress h3 {
+    font-size: 22px;
+    font-weight: 400;    
+    background-color: #35c48617;
+}
+
+/* иконка перед заголовком курса */
+/*
+.widget-area .widget.widget_course_progress h3 a:before {
+    @include mixfont-family-icon;
+    content: '\f015';
+    font-size: 80%;
+    margin-right: 6px;
+    background-color: #1876c1;
+    color: #fff;
+    padding: 5px 5px 5px 4px;
+    border-radius: 50px;
+}
+*/
+/*.widget-area .widget.widget_course_progress h3 a{
+    position: relative;
+}
+.widget-area .widget.widget_course_progress h3 a:after{
+   content: '';
+    border-bottom: 3px dotted #2573b1;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 300px;
+
+}
+*/
+.widget-area .widget.widget_course_progress h3 a{
+    text-decoration: underline;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+}
+
+/*.widget-area .widget_display_search input[type=text], .widget-area .widget_search input[type=text] {
+    width: 93%;
+    background-color: #fff0;
+    position: initial;
+    overflow: hidden;
+}*/
+
+/**
+*
+*   BuddyPanel
+*
+*/
+
+/* background */
+body.is-desktop, .menu-panel,
+.menu-panel #nav-menu .sub-menu-wrap,
+.bp_components ul li ul li.menupop .ab-sub-wrapper {
+    background-color: $main_nav_color; /* !important */
+}
+
+/*  items background  hover */
+.sensei-content .item-list-tabs ul li span,
+body:not(.tablet) .menu-panel #nav-menu > ul > li:hover,
+body:not(.tablet) .menu-panel ul li .menupop:hover,
+.menu-panel ul li a span, #course-video #hide-video,
+.quiz form ol#sensei-quiz-list li ul li input[type='checkbox']:checked + label:after {
+    background-color: $main_nav_hover_color2; /* !important */
+}
+
+/* Баннер главной страницы курса */
+.course-header {
+    background-color: $course_banner_color; /* !important */
+    background-image: linear-gradient( 135deg, #6dd7a2 10%, #2573b1 100%);    
+}
+/* 
+* Лейбл курса
+* Название курса
+* Текст описания 
+* Метка прогресса 
+*/
+.single-sfwd-courses .course-header .content>span,
+.course-header p,
+.single-sfwd-courses article h1 {
+    color: $course_banner_text_color;    
+}
+/* Прогресс-бар */
+.course-header dd.course_progress div.course_progress_blue{
+    background-color: $main_color;
+}
+/* Метки рубрики тэги */
+.single-sfwd-courses .course-header .categories a{
+    border: none; /* 2px solid $course_banner_tags_color;  */
+    color: $course_banner_tags_color;
+    background-color: rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+}
+
+/* Стилизуем цифровые уведомления над иконками Buddy panel */
+.menu-panel ul li a span{
+    background-color: #eeffa5; /* !important */
+    color: #2e483a; /* !important */
+}
+
+/* Иконки в свернутой BuddyPanel */
+.menu-panel #header-menu>ul li a:before,
+.menu-panel #nav-menu>ul li>a:not(.open-submenu):before,
+.menu-panel .bp_components ul li ul li>.ab-item:before,
+.menu-panel .screen-reader-shortcut:before,
+.menu-panel #nav-menu > ul li > a:not(.open-submenu) i{
+    color: $main_nav_text_color;/* #3c7a90; */
+}
+/* BuddyPanel свернута */
+/* Иконка календаря */
+body:not(.left-menu-open) .menu-panel #nav-menu>ul>li>a>i{
+    color: $main_nav_text_color;
+}
+body:not(.left-menu-open) .menu-panel #nav-menu>ul>li:hover>a>i{
+    color: $light_icon_color;
+} 
+
+
+
+/* Цвет иконки активного пункта меню */
+body .menu-panel #header-menu>ul>li.current-menu-item>a:not(.open-submenu):before,
+body .menu-panel #header-menu>ul>li.current-menu-parent>a:not(.open-submenu):before,
+body .menu-panel #header-menu>ul>li.dropdown>a:not(.open-submenu):before,
+body .menu-panel #nav-menu>ul>li.current-menu-item>a:not(.open-submenu):before,
+body .menu-panel #nav-menu>ul>li.current-menu-parent>a:not(.open-submenu):before,
+body .menu-panel #nav-menu>ul>li.dropdown>a:not(.open-submenu):before,
+body .menu-panel .bp_components ul li ul li.menupop.active>a:not(.open-submenu):before,
+body .menu-panel .bp_components ul li ul li.menupop.dropdown>a:not(.open-submenu):before,
+body.tablet .menu-panel #header-menu>ul>li.current-menu-item>a:not(.open-submenu):before,
+body.tablet .menu-panel #header-menu>ul>li.current-menu-parent>a:not(.open-submenu):before,
+body.tablet .menu-panel #nav-menu>ul>li.current-menu-item>a:not(.open-submenu):before,
+body.tablet .menu-panel #nav-menu>ul>li.current-menu-parent>a:not(.open-submenu):before,
+body.tablet .menu-panel .bp_components ul li ul li.menupop.active>a:not(.open-submenu):before{
+    color: $main_nav_hover_text_color;
+}
+
+
+/* Стрелки активного пункта меню в мобильной версии */
+.menu-panel #header-menu>ul>li.dropdown>a:before,
+.menu-panel #nav-menu>ul>li.dropdown>a:before,
+.menu-panel .bp_components ul li ul li.menupop.dropdown>a:before{
+    color: $main_color;
+}
+
+/* Стрелка активного пункта меню в мобильной версии */
+
+a.open-submenu.fa.fa-angle-right.fa-angle-down:before {
+    content: "\f107";
+}
+
+/* Current item icon */
+body.left-menu-open .menu-panel #nav-menu>ul>li.current-menu-item > a:before{
+    color: $light_icon_color!important;
+}
+
+/* Пункт активного меню в мобильной версии */
+.menu-panel #header-menu>ul>li.current-menu-item>a,
+.menu-panel #nav-menu>ul>li.current-menu-item>a{
+    color: #fff;  
+}
+
+/* icons color */
+body.left-menu-open .menu-panel #nav-menu > ul > li > a:not(.open-submenu):before, 
+body.left-menu-open .menu-panel #header-menu > ul > li > a:not(.open-submenu):before, 
+body.left-menu-open .menu-panel .bp_components ul li ul li > .ab-item:before, 
+body.left-menu-open .menu-panel .screen-reader-shortcut:before, 
+body .menu-panel .boss-mobile-porfile-menu ul a:before,
+.menu-panel #nav-menu>ul li>a:not(.open-submenu) i{
+    color: $dark_icon_color; /* !important */ /* #16ac79; */
+}
+
+/* icons color  hover */
+.tablet .menu-panel #nav-menu > ul > li.dropdown > a:before, 
+.tablet .menu-panel .bp_components ul li ul li.menupop.dropdown > a:before, 
+body:not(.tablet) .menu-panel .screen-reader-shortcut:hover:before, 
+body:not(.tablet) .menu-panel #nav-menu > ul > li:hover > a:before, 
+body:not(.tablet) .menu-panel .bp_components ul li ul li.menupop:hover > a:before,
+.menu-panel #nav-menu>ul li:hover > a:not(.open-submenu) i{
+    color: $light_icon_color;
+}
+
+/* Меню подпункты */
+.menu-panel #header-menu ul .sub-menu-wrap a,
+.menu-panel ul li a,
+.menu-panel ul li div.ab-item{
+    color: $main_sub_nav_text_color;
+}
+
+/* Label background color on hover for closed left panel */
+.menu-panel #nav-menu .sub-menu-wrap > a, 
+.menu-panel #header-menu .sub-menu-wrap > a, 
+.menu-panel ul li ul li .ab-sub-wrapper > .ab-item, 
+.menu-panel #nav-menu .sub-menu-wrap > ul, 
+.menu-panel #header-menu .sub-menu-wrap > ul, 
+.menu-panel ul li ul li .ab-sub-wrapper > ul {
+    background-color: $main_nav_color; /*  */
+    color: $main_nav_text_color;    
+    &:hover{
+        background-color: $main_nav_hover_color; 
+        color: $main_nav_hover_text_color;
+    }
+}
+/* Для больших экранов */
+/* BuddyPanel слева - цвет стрелок ярлыков */
+@media screen and (min-width: 481px){
+    /* arrow color */
+    /*    .menu-panel .sub-menu-wrap::before, 
+        .menu-panel .ab-sub-wrapper::before */
+    .menu-panel .sub-menu-wrap::after, 
+    .menu-panel .ab-sub-wrapper::after 
+    {
+        border-color: transparent $main_color transparent transparent;
+    }	
+
+    /*    .menu-panel .sub-menu-wrap:hover::before, 
+        .menu-panel .ab-sub-wrapper:hover::before */
+    .menu-panel .sub-menu-wrap:hover::after, 
+    .menu-panel .ab-sub-wrapper:hover::after 
+    {
+        border-color: transparent $main_nav_hover_color transparent transparent; /* !important */        
+    }
+    /* Цвета субменю правого меню - пользователя на большом экране */
+    .header-account-login .pop .bp_components .menupop:not(#wp-admin-bar-my-account):hover > .ab-sub-wrapper,
+    .header-account-login .pop .links li:hover > .sub-menu {
+        background-color: $main_nav_text_color; /* !important */
+    } 
+    /* фон хедера при отключенной ByddyPress панели */
+    .page-template-page-no-buddypanel:not(.boxed) .header-inner {
+        background-color: #fff; /* !important */
+    }
+}
+
+/**
+* Footer
+*/
+
+.footer-inner-bottom, 
+div.footer-inner-top{
+    background-color: $footer_top_color;
+}
+
+/* Ссылки тексты и Кнопка наверх  */
+#footer-links a,
+.footer-credits,
+.footer-credits a,
+#footer-links a.to-top {
+    color: $footer_top_text_color; /* #ffffff80; */
+}

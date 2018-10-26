@@ -1,0 +1,308 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 29, 2018, 9:53:26 AM
+    Author     : Моргунов Виталий
+*/
+
+/* Календарь мероприятий строка дней недели */
+.fc-day-header.ui-widget-header, table.fullcalendar tr.days-names td {
+    background: $alternative_color; /* #1876c1; */
+}
+
+/* Стрелки для перехода по месяцам */
+table.fullcalendar .em-calnav-next:before,
+table.fullcalendar .em-calnav-prev:before {
+    border: none;
+    color: rgb(53, 196, 134);
+    font-size: 30px;
+}
+table.fullcalendar .em-calnav-prev:before {
+    content: "\f137";
+}
+table.fullcalendar .em-calnav-next:before {
+    content: "\f138";
+}
+/* / Стрелки для перехода по месяцам */
+/* страница мероприятия цвет адреса проводимого мероприятия */
+body.single-event .event-location {
+    color: $main_color;
+}
+
+/* Страница редактирвоания брони - обводка области текста */
+iframe#em-editor-content_ifr {
+    border: 2px solid #35c486; 
+}
+.events-table th {
+    background-color: #7ed9b2;
+    color: #fff;
+}
+
+.em-booking-form label {
+    width: 100%;
+}
+.em-booking-form-details textarea {
+    width: 100%;
+}
+
+/* BP мои мероприятия и мои места - Мой профиль */
+
+/* Заголовок таблицы мероприятий */
+.bp-user.events #buddypress #posts-filter .events-table thead th,
+.bp-user.events.my-bookings #buddypress table thead th,
+#buddypress #dbem-bookings-table th,
+.bp-user.events.my-locations #buddypress .widefat thead th{
+    background-color: #7ed9b2; /* #16ac79; */
+    font-family: inherit;
+    color: #fff;
+}
+/* Контейнер  селекта и кнопки сабмит */
+/* flex контейнер */
+.bp-user.events #posts-filter .search-box,
+.tablenav .alignleft.actions{
+    box-sizing: border-box;
+    width: auto!important;
+    display: -webkit-flex; 
+    display: flex; /*отображает контейнер как блочный элемент*/ 
+    flex-flow: row wrap;
+    -webkit-justify-content: space-between;
+    justify-content:space-between;
+    margin-left: -15px!important;
+    margin-right: -15px!important;
+    margin-bottom: 10px;
+    float: none;
+
+}
+
+/* селект мероприятий */
+/* поле ввода текста для поиска */
+.bp-user.events #posts-filter .search-box input[type=text],
+.bp-user.events.my-locations .tablenav .buddyboss-select{
+    /* width: calc(100% - 250px);*/
+    -webkit-flex-basis: 300px; 
+    flex-basis: 300px;
+    min-width: 280px;
+    flex-grow: 4;
+    flex-shrink: 1;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+
+
+}
+/* кнопка Искать Кнопка Применить  */
+.bp-user.events .search-box input[type=submit],
+.bp-user.events.my-locations .tablenav input[type=submit]{
+    -webkit-flex-basis: 220px; 
+    flex-basis: 220px;
+    min-width: 220px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+/* Мероприятия профиль BP Отменяем отрицательный margin для блока  с информацией, т.к. раньше налезал на кнопку Добавить */
+.events .css-events-admin, .events .css-locations-admin{
+    margin-top: 0;
+}
+
+/* Страница Мероприятия верхняя форма поиска с фильтром */
+body.events-page div.css-search,
+body.page:not(.buddypress).events-page .site-content article:not(.comment) .events-list-content {
+    padding: 30px 70px 10px 70px;
+}
+
+/* Виджет Events */
+li.mv-calendar-meta {
+    font-size: 13px;
+    color: #919191;
+}
+
+/* отступы между пунктами */
+.widget-area .widget li.mv-calendar-event-title {
+    margin-bottom: 30px;
+}
+/* / Виджет Events */
+
+
+/*
+* Виджет календаря 
+*/
+
+/* Заголовок */
+.widget table.em-calendar thead td {
+    @include mixtable-head;
+    /*    color: #fff;
+        background-color: #7ed9b2;    #8ac8f9;  */
+}
+
+/* Сегодня */
+.widget table.em-calendar td.eventful-today, .widget table.em-calendar td.eventless-today {
+    background-color: #7ed9b2; /* !important */  /*  #8ac8f9; */
+}
+
+/* Дата с событиями */
+.widget table.em-calendar td.eventful a{
+    border-bottom: 1px solid #1876c1; /* #16ac79;  */
+}
+
+table.em-calendar td.eventful a, table.em-calendar td.eventful-today a{
+    color: #1876c1; /* #16ac79; */
+    font-weight: bold;
+}
+/* Стрелки */
+a.em-calnav {
+    color: #fff;
+}
+/* / Виджет календаря */
+
+
+/* страница списка мероприятий events */
+#events-switch-layout.btn-group>.btn.active, #events-switch-layout.btn-group>.btn:hover {
+    background-color: #35c486;
+}
+
+/* Ряд заголовка */
+body.events-page .entry-header {
+    background-color: #fff; /* rgba(0,0,0,.04); */
+
+}
+
+/* Заголовок таблицы списка мероприятий */
+#em-wrapper .events-list-content table th{
+    /*    background-color: #7ed9b2;*/
+    @include mixtable-head;
+}
+body.page:not(.buddypress).events-page .events-list-content table:after, 
+body.page:not(.buddypress).events-page .events-list-content table:before {
+    /*    background-color: #7ed9b2;*/
+    @include mixtable-head;
+}
+
+/*Форма поиска */
+div.css-search {
+    background: #fafafa;
+    border-bottom: 1px solid rgba(0,0,0,.11);
+    border-top: 1px solid rgba(0,0,0,.11);
+}
+
+/* строка поиска */
+
+div.css-search input.em-search-text,
+div.css-search input.em-search-geo {
+    width: 100%;
+    line-height: 30px;
+    border: 1px solid #e0e0e0;
+    color: #252525;
+    box-shadow: none;
+}
+
+/* кнопка найти */
+div.css-search div.em-search-main .em-search-submit {
+    height: 48px;
+    background: #35c486;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+div.css-search div.em-search-main .em-search-submit:hover {
+    background: #35c386;
+}
+/* форма фильтра flex контейнер из того, что было  */
+div.css-search div.em-search-advanced {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    align-items: center;
+}
+
+/* форма фильтра поиска выбор дат */
+.em-search-scope.em-search-field{
+    flex: 0 1 515px;
+}
+
+div.css-search .em-search-scope input{
+    height: auto;
+    line-height: 30px;
+}
+
+/* форма фильтра поиска выбор дат Надпись Даты */
+span.em-search-scope.em-events-search-dates.em-date-range label > span {
+    display: inline-block;
+    float: none;
+    width: auto;
+    min-width: inherit;
+    margin-right: 10px;
+}
+
+/* форма фильтра поиска выбор категории */
+.em-search-category.em-search-field {
+    flex: 0 0 200px;
+}
+
+/* Сайдбар Виджет Список мероприятий Цвета ссылкок  */
+.widget-area .widget:not(.widget_buddyboss_recent_post) ul li a {
+    color: $calendar_link;
+    &:hover{
+        color: $calendar_link_hover;
+    }
+}
+
+
+/*--------------------------------------------------------------
+        2.0 - Responsive media queries (mobile styles)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+        2.1 - MAXIMUM width of 720 pixels (phones landscape)
+--------------------------------------------------------------*/
+@media screen and (max-width: 720px) {
+
+
+}/* don't delete this closing bracket */
+
+
+/*--------------------------------------------------------------
+        2.2 - MAXIMUM width of 470 pixels (phones portrait)
+--------------------------------------------------------------*/
+
+@media screen and (max-width: 470px) {
+
+
+}
+
+/*--------------------------------------------------------------
+        2.3 - MAXIMUM width of 350 pixels (phones portrait)
+--------------------------------------------------------------*/
+@media screen and (max-width: 350px) {
+
+
+}/* don't delete this closing bracket */
+
+
+/*--------------------------------------------------------------
+        2.4 - MINIMUM width of 721 pixels (tablets+)
+--------------------------------------------------------------*/
+@media screen and (min-width: 721px)  {
+
+
+}/* don't delete this closing bracket */
+
+
+@media screen and (max-width: 1039px) {
+
+}
+
+
+/*--------------------------------------------------------------
+        2.5 - MINIMUM width of 1040 pixels (desktops and laptops)
+--------------------------------------------------------------*/
+@media screen and (min-width: 1040px)  {
+
+
+
+}/* don't delete this closing bracket */

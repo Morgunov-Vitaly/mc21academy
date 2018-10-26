@@ -1,0 +1,118 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 20, 2018, 8:58:28 PM
+    Author     : Моргунов Виталий
+*/
+
+/* Размеры шрифта */
+
+$font-size-big: 22px;
+$font-size-normal: 16px;
+$font-size-small: 14px;
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i');
+$font-weight-light-main: 400;
+$font-weight-bold-main: 500;
+$font-weight-light-heading: 400;
+$font-weight-bold-heading: 500;
+
+
+@mixin mixfont-family-main {
+    font-family: 'Open Sans', sans-serif;   
+} 
+@mixin mixfont-family-heading {
+    font-family: 'Ubuntu', sans-serif;    
+} 
+
+@mixin mixfont-family-icon {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900!important;  
+} 
+/* разбиение и перенос строк */
+@mixin mixwords-brakes {
+  overflow-wrap: normal;  /* не поддерживает IE, Firefox; является копией word-wrap */ 
+  word-wrap: normal;
+  word-break: normal;  /* не поддерживает Opera12.14, значение keep-all не поддерживается IE, Chrome */ 
+  line-break: auto;  /* нет поддержки для русского языка */ 
+  hyphens: manual;  /* значение auto не поддерживается Chrome */ 
+}
+
+@mixin mixh1($header_color) {
+    h1{
+    @include mixfont-family-heading;
+    font-weight: $font-weight-bold-heading;
+    font-size: 34px;
+    line-height: 1.4;
+    letter-spacing: -1px;
+/*    text-transform: uppercase;*/
+    /* color: $header_color; */
+    @include mixwords-brakes;
+    }
+
+}
+
+@mixin mixh2($header_color) {
+    h2{
+    @include mixfont-family-heading;
+    font-weight: $font-weight-bold-heading;
+    font-size: 30px;
+    line-height: 1.4;
+    letter-spacing: -1px;  
+/*    text-transform: uppercase; */
+    /* color: $header_color; */
+    @include mixwords-brakes;
+    }
+}
+ 
+@mixin mixh3($header_color) {
+    h3{
+    @include mixfont-family-heading;
+    font-weight: $font-weight-bold-heading;        
+    font-size: 26px;
+    line-height: 1.4;       
+    letter-spacing: -1px;
+   /*  color: $header_color; */
+    @include mixwords-brakes;
+    }
+}
+
+@mixin mixh4($header_color) {
+    h4{
+    @include mixfont-family-heading;
+    font-weight: $font-weight-light-heading;        
+    font-size: 24px;
+    line-height: 1.4;       
+    letter-spacing: -1px;    
+   /* color: $header_color; */
+    @include mixwords-brakes;
+    
+    }
+}
+
+@mixin mixh5($header_color) {
+    h5{
+    @include mixfont-family-heading;
+    font-weight: $font-weight-bold-heading;        
+    font-size: 20px;
+    line-height: 1.4;       
+    letter-spacing: -1px; 
+   /* color: $header_color; */
+    @include mixwords-brakes;
+    }
+}
+
+@mixin mixh6($header_color) {
+    h6{
+    @include mixfont-family-heading;
+    font-weight: $font-weight-bold-heading;        
+    font-size: 18px;
+    line-height: 1.4;       
+    letter-spacing: -1px;     
+  /*  color: $header_color; */
+    @include mixwords-brakes;
+    }
+}

@@ -1,0 +1,660 @@
+/*--------------------------------------------------------------
+        This is your custom stylesheet.
+        
+        Add your own styles here to make theme updates easier.
+        To override any styles from other stylesheets, simply copy them into here and edit away.
+        
+        Make sure to respect the media queries! Otherwise you may
+        accidentally add desktop styles to the mobile layout.
+        
+        You're the boss, so have fun editing!
+        
+        --------------------------------------------------------------
+        >>> TABLE OF CONTENTS:
+        ----------------------------------------------------------------
+        1.0 - Global Styles
+        2.0 - Responsive media queries (mobile styles)
+        2.1 - MAXIMUM width of 720 pixels (phones landscape)
+        2.2 - MAXIMUM width of 350 pixels (phones portrait)
+        2.3 - MINIMUM width of 721 pixels (tablets+)
+        2.4 - MINIMUM width of 1040 pixels (desktops and laptops)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+        1.0 - Global Styles
+--------------------------------------------------------------*/
+ 
+/*
+* Подключаем цветовую тему
+*/ 
+
+@import '_theme_electric_green_color';
+/**
+* Подключаем типографику
+*/
+
+@import '_typography_modern';
+
+/* Глобальные переменные стилей */
+
+/**
+* Элементы 
+*/
+
+/* Ссылка */
+@mixin mix-a{
+    a{
+        color: $main_link_color;
+        &:hover{ color: $main_link_hover_color;}
+    }
+}
+/* Заголовок таблицы */
+@mixin mixtable-head{
+    color: $main_table_header_text_color; /* !important */
+    background-color: $main_table_header_color; /* !important */
+    border: none;
+    & a{
+        color:$main_table_header_link_color; /* !important */
+        &:hover{
+            color: $main_table_header_link_hover_color; /* !important */
+        }
+    }
+} 
+
+/* кнопка основная */
+@mixin mix-button-main{
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: $main_button_color; /* !important */
+    color: $main_button_text_color; /* !important */
+    border-color: $main_button_color; /* !important */
+}
+@mixin mix-button-main-hover{
+    background-color: $main_button_hover_color; /* !important */
+    color: $main_button_hover_text_color; /* !important */ 
+    border-color: $main_button_hover_color; /* !important */
+    box-shadow: none; /* !important */
+}
+
+/* кнопка альтернативная */
+@mixin mix-button-alternative{
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: $alternative_button_color; /* !important */
+    border-color: $alternative_button_color; /* !important */
+    color: $alternative_button_text_color; /* !important */   
+}
+@mixin mix-button-alternative-hover{
+    background-color: $alternative_button_hover_color; /* !important */
+    border-color: $alternative_button_hover_color; /* !important */
+    color: $alternative_button_hover_text_color; /* !important */
+    box-shadow: none; /* !important */
+}
+/* текстовое поле для ввода текстовой информации */
+
+/* текстовый инпут */
+
+/* селект */
+
+/* мелкая подпись - комментарий */
+
+/*/ элементы */
+
+
+/* Глобальные стили */
+
+body, p {
+    line-height: 1.8;
+    font-size: $font-size-normal;
+    @include mixfont-family-main; 
+}
+
+a {
+    color: $main_link_color;
+    &:hover{
+        color: $main_link_hover_color; 
+    }
+}
+ 
+/**
+*   Цвет иконок 
+*/
+.mv-icons-color{
+    color: $main_icons_color;
+}
+  
+/* Весь текст */
+.entry-content,
+.entry-content p{
+    font-size: $font-size-normal;
+    color: $main_text_color
+}
+ 
+h1, h2, h3, h4, h5, h6{
+    color: $main_header_color;
+}
+
+/* Внутреннее содержимое */
+.entry-content,
+.entry-buddypress-content,
+#trainers,
+#instructors,
+.single-sfwd-courses article header,
+#students .vc_col-sm-3{
+    @include mixh1($main_header_color);
+    @include mixh2($main_header_color);
+    @include mixh3($main_header_color);
+    @include mixh4($main_header_color);
+    @include mixh5($main_header_color);
+    @include mixh6($main_header_color);
+    @include mix-a;
+
+}
+
+/* комментарии */
+.comment-content{
+    @include mixh1($main_header_color);
+    @include mixh2($main_header_color);
+    @include mixh3($main_header_color);
+    @include mixh4($main_header_color);
+    @include mixh5($main_header_color);
+    @include mixh6($main_header_color);
+}
+
+
+/**
+*
+*   Исправляем косяки темы 
+*  
+*/
+
+/* Отображение svg единичных картинок - в случае с svg не работало */
+.wpb_single_image img {
+    height: auto;
+    width: 100%;
+}
+
+/* Исправляем ограничение Input[submit] */
+input[type=submit]{
+    width: inherit;
+    padding: 10px 25px;
+}
+ 
+/*
+Исправляем баг с font awesome  
+- не отображались иконки стрелок влево 
+для  пунктов мобильного меню пользователя 
+*/
+
+.fa, .far, .fas{
+    @include mixfont-family-icon;
+}
+
+.fa-angle-left:before {
+    @include mixfont-family-icon;
+    content: "\f104";
+}
+
+/*  исправляем косяки с иконками LogIn fontawesome  */
+.menu-panel a.login-link:before,
+.menu-panel #nav-menu > ul li.bp-login-nav > a:before {
+    @include mixfont-family-icon;
+    content: "\f2f6";
+}
+/*  исправляем косяки с иконками Logout fontawesome  */
+.menu-panel #header-menu>ul>li.bp-logout-nav>a:before,
+.menu-panel #nav-menu>ul li.bp-logout-nav>a:before,
+.menu-panel .screen-reader-shortcut:before {
+    @include mixfont-family-icon;
+    content: "\f2f5";
+}
+
+/*  
+исправляем косяки с  иконкой 
+BuddyPress профиль пользователя Раздел сообщения 
+- стрелочка в списке подпунктов меню  
+- не вмещалась и перелетала на новую строку 
+*/
+
+.bp-user.messages #buddypress div#subnav.item-list-tabs ul li a {
+    width: 160px;
+}
+
+/*
+*   Ставим на место окно WpBakery Page Builder   
+*   - отсюда не работает - эти стили не подключаются 
+*/
+/* 
+.vc_ui-panel.vc_ui-panel-window{ 
+        z-index: 1000; 
+} 
+*/
+
+/* селект выбора категорий учебных программ в каталоге */
+.vc_grid-filter-dropdown .vc_grid-styled-select select,
+.vc_grid-filter-select .vc_grid-styled-select select {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Селект выбора категорий в профилях BuddyPress */
+.buddyboss-select-inner, .selected-tab {
+    height: 40px;
+    width: 100%;
+    clear: both;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    position: relative;
+    line-height: 22px;
+    display: block;
+    background-color: transparent;
+    color: $main_color;
+    text-transform: uppercase;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 2px solid $main_color;
+    box-sizing: border-box;
+}
+
+#TB_window {
+    z-index: 100050; /* !important */
+}
+
+/* / Исправляем косяки темы  */
+
+/* Изменяем иконку??? */
+#mobile-item-nav ul li#home-groups-li:before {
+    @include mixfont-family-icon;
+    content: "\f19d";
+}
+
+
+/**
+*
+*   Подключаем стили главных навигационных панелей и меню 
+*   Панель BuddyPanel
+*
+*/
+@import 'navigation';
+
+
+
+/* Обводка аватара в сайдбаре */
+.widget .avatar-block img.avatar{
+    border-color: $main_nav_color;
+}
+
+/* стилизуем все кнопки */
+a.button{
+    @include mix-button-alternative;
+
+    &:hover{
+        @include mix-button-alternative-hover;  
+    }
+}
+
+
+/* Кнопка поиска в инпуте поиска */
+#messages_search_submit,
+#groups_search_submit,
+#members_search_submit{
+    background-color: transparent; /* !important */
+}
+
+/* Кнопка оформить заявку из раздела каталог учебных программ  */
+.model-popup-btn{
+    @include mix-button-main;
+    &:hover{
+        @include mix-button-main-hover;
+    }
+}
+
+
+
+/*
+*   Инструментальные классы 
+*/
+
+.mv_white p,
+.mv_white H2,
+.mv_white H3,
+.mv_white H4{
+    color: #fff; /* !important */
+}
+
+/**
+* Перестановка 2-х колонок в ряду  
+* Присвоить ряду с двумя колонками класс .reordered и они будут переставлены на ширине экрана до 767px
+*/
+@media screen and (max-width: 767px) {
+    .mv-reordered > div:first-child {
+        order: 2;
+        margin-top: -40px;
+        margin-bottom: 30px;
+    }
+    .mv-reordered > div:last-child {
+        order: 1;
+        margin-bottom: 0;
+    }
+    .mv-ordered> div:first-child {
+        margin-bottom: 0;
+    }
+    .mv-ordered > div:last-child {
+        margin-top: -40px;
+        margin-bottom: 30px;
+    }
+}
+
+/* 
+*   Шаблон страницы учебной программы 
+*   Разметка FlexBox
+*/
+
+/* ряд */
+.mv_row{
+    width: 100%;
+    padding: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+/* контейнер flex */
+.mv_inner_flex{
+    display : -webkit-flex;
+    display : -ms-flexbox;
+    display : flex;
+
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    -webkit-justify-content: flex-start; /* Safari */
+    justify-content: flex-start;    
+
+    -webkit-align-content: flex-start; /* Safari */
+    align-content: flex-start;
+
+}
+/* flex элементы */
+/* на 100% */
+.mv-col-100{
+    width: 100%;    
+    flex-basis: 100%;
+    flex-grow: 1;
+}
+
+/* на 70% */
+.mv-col-70{
+    min-width: 320px;
+    flex-basis: 70%;
+    flex-grow: 1;
+}
+/* на 50% */
+.mv-col-50{
+    min-width: 250px;
+    flex-basis: 50%;
+    flex-grow: 1;
+}
+
+/* на 30% */
+.mv-col-30{
+    min-width: 250px;
+    flex-basis: 30%;
+    flex-grow: 1;
+}
+
+/* на 33,3% */
+.mv-col-30{
+    min-width: 250px;
+    flex-basis: 33,3%;
+    flex-grow: 1;
+}
+
+/* какой-то абстрактный класс внутреннего элемента */
+.mv_column-inner {
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    flex-grow: 1;
+}
+/* / Разметка FlexBox */
+
+
+/* Стилизуем эффект наведения для картинок */
+.mv-hover{
+    overflow:hidden;
+}
+.mv-hover img{
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    transition: 2s;
+}
+.wpb_wrapper:hover>.mv-hover img{
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+    transition: 2s;
+}
+
+/*  стилизуем фотку аватара в профиле пользователя */
+#item-header-avatar img.avatar{
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    transition: 2s;
+}
+#item-header-avatar:hover img.avatar{
+    -webkit-transform: scale(1.3, 1.3);
+    transform: scale(1.3, 1.3);
+    transition: 2s;
+}
+
+/* Карточка учебных программ */
+/* задаем высоту блока с описанием внизу карточки программы */
+.mv-learning-program-caption{
+    position: absolute;
+    height: 110px;
+    width: 100%;
+    bottom: 0; 
+    overflow: hidden;
+/*    display: flex;
+    align-items: center;*/
+
+}
+/* Внутренний блок с заголовком - вертикальное центрирование */
+.mv-learning-program-caption .vc_gitem-post-data {
+/*    margin: 0;*/
+}
+
+/* Загловок */
+.mv-learning-program-title a{
+    font-size: 16px; /* 20px;*/
+    font-weight: bold;
+    line-height: inherit; /* 1.3; */
+    color: $main_button_text_color!important;
+}
+/* Описание */
+.mv-learning-program-description a p{
+    font-size: $font-size-small;
+    line-height: 1.4;
+    color: $main_button_text_color!important;
+}
+/* / Карточка учебных программ */
+
+/* кнопка назад в каталог */
+.mv-nav-menu a.mv-go-back-btn {
+    color: $bright_button_text_color;
+    border-radius: 50px;
+    padding: 10px 25px;
+    background-color: $bright_button_color; /* $alternative_button_color; $dark_background_color */
+    &:hover{
+        color: $bright_button_hover_text_color;
+        background-color: $bright_button_hover_color; /* $dark_background_hover_color */
+    }
+}
+/* отступы для ссылок кнопок назад в каталог */
+.mv-nav-menu{
+    margin: 20px 0; 
+}
+
+/* Каталог учебных программ - карточка программы мета данные */
+.mv-programs-meta{
+    color: rgba(0,0,0,0.4);
+    font-size: 15px;
+    /* font-weight: bold;	*/
+}
+
+/* / Каталог учебных программ */
+
+/* Сайдбар Виджет Последние публикации Ссылки Категории постов */
+.widget-area .widget.widget_buddyboss_recent_post ul li a.category-link {
+    color: $alternative_text_color;
+    font-size: $font-size-small;
+    &:hover{
+        color: $main_link_hover_color; 
+    }
+}
+
+/** 
+*   ContactForm 7  
+*/
+form.wpcf7-form input, form.wpcf7-form textArea {
+    width: 100%;
+}
+form.wpcf7-form input[type=checkbox].styled {
+    width: auto;
+}
+
+/*
+*
+*   Подключаем стили LearnDash
+*
+*/
+@import '_learndash'; 
+
+
+
+/* 
+*
+*   Подключаем стили byddyPress
+*
+*/
+@import '_buddy_press';
+
+
+/*
+*
+*   Стилизация календаря мероприятий  Events Manager 
+*
+*/
+
+/*
+*   Подключаем стили events_manager
+*/
+
+@import 'events_manager';
+
+ 
+/* Ссылка на переход к редактированию материала */
+span.edit-link {
+    padding: 5px 15px;
+    padding-left: 25px;
+}
+/*span.edit-link:before {
+    content: "\f303";
+    color: $main_link_color;
+    padding-right: 5px;
+    @include mixfont-family-icon;
+}*/
+span.edit-link a.post-edit-link:before {
+    content: "\f303";
+    color: #fff;
+    margin-right: 5px;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900 !important;
+    padding: 6px;
+    border-radius: 20px;
+    background-color: $main_link_color;
+}
+ 
+span.edit-link a.post-edit-link:hover:before{
+    background-color: $main_link_hover_color;
+} 
+/*--------------------------------------------------------------
+        2.0 - Responsive media queries (mobile styles)
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+        2.1 - MAXIMUM width of 720 pixels (phones landscape)
+--------------------------------------------------------------*/
+@media screen and (max-width: 720px) {
+
+    /* страница событий */
+    body.events-page div.css-search,
+    body.page:not(.buddypress).events-page .site-content article:not(.comment) .events-list-content {
+        padding: 20px 10px 10px 10px;
+    }
+
+}/* don't delete this closing bracket */
+
+/*--------------------------------------------------------------
+        2.2 - MAXIMUM width of 440 pixels (phones portrait)
+--------------------------------------------------------------*/
+@media screen and (max-width: 440px) {
+
+    .lesson h4 a{
+        font-size: 70%;
+    }
+    
+/* Главная курса таблица со списком уроков и тем - перенос строк с кол-вом уроков и тем и стрелкой при маленьком экране */
+#learndash_lessons #lessons_list .lesson-meta{
+   white-space: inherit;
+}
+
+}/* don't delete this closing bracket */
+
+
+/*--------------------------------------------------------------
+        2.3 - MINIMUM width of 721 pixels (tablets+)
+--------------------------------------------------------------*/
+@media screen and (min-width: 721px)  {
+
+
+}/* don't delete this closing bracket */
+/* Скрываем на мобильных дисплеях меню BP из левого меню - оставляем там только основное меню навигации */ 
+/* В теге body появляется свойство is-mobile tablet -для планшетов и просто is-mobile для всех мобильных девайсов */
+.is-mobile .menu-buddypanel-container{
+    display: none;
+}
+/* Скрываем на больших экранах меню BP из правого меню  пользователя */
+/* В теге body появляется свойство is-desktop */
+.is-desktop .pop .ab-sub-wrapper {
+        display: none;
+}
+@media screen and (max-width: 1039px) {
+    /* Скрываем на мобильных дисплеях меню BP из левого меню - оставляем там только основное меню навигации */    
+/*    div#nav-menu {
+        display: none;
+    }*/
+} 
+ 
+ 
+/*--------------------------------------------------------------
+        2.4 - MINIMUM width of 1040 pixels (desktops and laptops)
+--------------------------------------------------------------*/
+@media screen and (min-width: 1040px)  {
+
+    /* управляем BP и BB меню  */
+    /* Скрываем на больших экранах меню BP из правого меню  пользователя */
+/*    .ab-sub-wrapper {
+        display: none;
+    }*/
+
+}
