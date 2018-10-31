@@ -34,9 +34,9 @@ div#register-page #signup_form.standard-form .visibility-toggle-link {
 }
 
 /* скрываем ссылку на дашборд для не админов */
-.no-adminbar div#dashboard-links {
+/*.no-adminbar div#dashboard-links {
     display: none;
-}
+}*/
 
 .register-section fieldset .standard-form input[type=text],
 .register-section fieldset .standard-form input[type=email] {
