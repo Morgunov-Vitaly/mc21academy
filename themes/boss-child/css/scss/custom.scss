@@ -164,6 +164,10 @@ h1, h2, h3, h4, h5, h6{
     @include mixh6($main_header_color);
 }
 
+/* Оформляем reCaptcha в формах запросов на прохождение курса и др. */
+.mv_recaptcha{
+    margin: 20px auto;
+}
 
 /**
 *

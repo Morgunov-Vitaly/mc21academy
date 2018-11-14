@@ -43,6 +43,12 @@ and open the template in the editor.
     display: none;
 }
 
+/* Настраиваем высоту миниатюры курса в карточке курса */
+.course-image{
+    max-height: 187px;
+}
+
+
 /* класс главной страницы курса в теге body .groups .single-sfwd-courses */
 
 /* Меняем оформление виджета Курс прогресс  */
@@ -87,12 +93,14 @@ and open the template in the editor.
 
 /* Курс Cетка курсов Course grid попытка выравнить размер карточки */
 .course-flexible-area header h2 {
-    min-height : 67px;
+    min-height : 80px;
     font-weight: bold;
+    max-height: 80px;
+    overflow: hidden;
 }
-a.course-cover-image img {
+/*a.course-cover-image img {
     max-height: 187px;
-}
+}*/
 .caption {
     min-height: 90px;
 }
