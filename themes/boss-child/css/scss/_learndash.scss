@@ -226,21 +226,28 @@ a.button.send-message-button {
     width: 100%!important;
 }
  
-/* Навигация по курсу кнопки следующий урок тема */
+/* Навигация по курсу кнопки "следующий урок тема" Кнопка "вернуться к уроку"  */
+a.next-link,
+a.prev-link{
+    line-height: 45px;    
+}
+
+div#learndash_back_to_lesson a,
 a.next-link,
 a.prev-link{
     background-color: $bright_button_color;
     padding: 10px 30px;
-    line-height: 45px;
     border-radius: 50px;
     color: $bright_button_text_color;
 }
 
+div#learndash_back_to_lesson a:hover,
 a.next-link:hover,
 a.prev-link:hover{
    background-color: $bright_button_hover_color;
    color: $bright_button_hover_text_color; 
 }
+
 
 /* Icon course or module completed */
 #learndash_profile #course_list h4>a.completed:after,
@@ -265,9 +272,11 @@ a.prev-link:hover{
 .ld-item .notcompleted:before,
 .learndash .notcompleted:before,
 .learndash .topic-notcompleted:before {
-    color: $main_color;
+    color: #e3e3e3; /* $main_color; */
     /*    #2196f3; */
 }
+
+
 #learndash_profile #course_list h4>a.in-progress:after,
 .ld-item .in-progress:before,
 .learndash .in-progress:before,
@@ -356,10 +365,6 @@ a.prev-link:hover{
     color: #35c486; /* !important */ 
     background-color: #35c486; /* !important */ 
 }
-.list_arrow.flippable.lesson_completed.expand {
-    color: #35c486; /* !important */
-    border-color: #35c486; /* !important */
-}
 
 /* Полоса прогресса выполнения курса */
 dd.course_progress {
@@ -378,8 +383,11 @@ dd.course_progress {
 
 /* Курс урок кнопка Обсуждение курса */
 p.bp-group-discussion a.button{
-    text-transform: uppercase;
-    white-space: nowrap;    
+    /* text-transform: uppercase; */
+    /* white-space: nowrap;     */
+    border-radius: 50px;
+    padding: 10px 30px;
+    width: auto;
 }
 
 /*  Курс Урок  Список тем заголовок таблицы */

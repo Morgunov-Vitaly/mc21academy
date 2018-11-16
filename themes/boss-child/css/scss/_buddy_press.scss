@@ -43,6 +43,18 @@ div#register-page #signup_form.standard-form .visibility-toggle-link {
     margin-bottom: 15px;
 }
 
+/* Стилизуем пагинацию */
+.pagination-links span.page-numbers.current{
+    color: $bp_link-active-color; /* #16ac79; */
+    border: 2px solid $bp_link-hover-color; /* #35c486 */
+    border-radius: 50px;
+}
+
+.entry-buddypress-content a.page-numbers{
+    color: $bp_link-color; /* #9da09f; */
+    border-radius: 50px;
+}
+
 /**
 *  BuddyPress профиль 
 */
@@ -78,7 +90,7 @@ body.bp-user #buddypress div#item-header div#item-header-content .btn-group.soci
 #buddypress div#item-nav .item-list-tabs ul li a span,
 .header-account-login .pop #dashboard-links .menupop a span,
 .header-account-login .pop ul>li>.ab-sub-wrapper>ul li a span{
-    background-color: #6dd7a2;
+    background-color: $bp_counter-color; /* #6dd7a2; */
 }
 
 /* 
@@ -97,8 +109,8 @@ input[type="submit"]{
 /* BP Мои сообщения кнопка -ссылка управления сообщениями -уведомлениями */
 #message-threads.notices-table a.button{
     border: none; /* !important */
-    color: #03a9f4; /* !important */
-    background-color: #fff; /* !important */
+    color: $main_link_hover_color; /* #03a9f4;  !important */
+    background-color: $message_text; /* #fff; !important */
 }
 /*BP профиль заголовок сообщения */
 h2#message-subject {
@@ -173,8 +185,8 @@ h2.entry-title {
 #bbpress-forums fieldset.bbp-form legend {
 
     width: auto;
-    color: #ffffff;
-    background-color: #35c486;
+    color: $message_text; /* #ffffff; */
+    background-color: $main_button_color; /* #35c486; */
     border-radius: 5px;
     padding: 10px 30px;
     font-weight: 400;

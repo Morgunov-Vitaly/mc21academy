@@ -247,6 +247,145 @@ a.ab-item,
     background-color: #35c48617;
 }
 
+/**
+*   (BuddyBoss) Курс прогресс
+*   Виджет прогресса курса
+*   
+*/
+
+
+div.learndash_nevigation_lesson_topics_list {
+
+    div.bb-lesson-list-item{
+        /* неактивный пункт */
+        &.inactive{
+            div.list_arrow{
+                height: 28px;
+                width: 28px;
+                border-radius: 50px;
+                border-width: 2px;
+                /* Раскрывающийся список */
+                &.flippable{
+                    /* Завершенный урок */
+                    &.lesson_completed{
+                        color: $main_button_color; /* #35c486; */
+                        border-color: $main_button_color; /* #35c486; */
+                        /* свернутый список */
+                        &.collapse{
+
+                        }
+                        /* Развернутый список*/
+                        &.expand{
+                            transform:rotate(0); /* возвращаем иконку стрелки в исходное положение - вниз */
+                        }     
+                    } 
+                    /* Незавершенный урок */
+                    &.lesson_incomplete{
+                        /* свернутый список */
+                        &.collapse{
+
+                        }
+                        /* Развернутый список*/
+                        &.expand{
+                            transform:rotate(0); /* возвращаем иконку стрелки в исходное положение - вниз */
+                        }                     
+                    }
+
+                }
+                /* Нераскрывающийся список */
+                &.collapse:not(.flippable){
+                    i.fa{
+                        display:none;
+                    }
+                    /* Завершенный урок */
+                    &.lesson_completed{
+                        color: $main_button_color; /* #35c486; */
+                        border-color: $main_button_color; /* #35c486; */
+                    } 
+                    /* Незавершенный урок */
+                    &.lesson_incomplete{
+                        /* свернутый список */
+                        &.collapse{
+
+                        }
+                        /* Развернутый список*/
+                        &.expand{
+
+                        }                     
+                    }
+
+                }  
+            }
+
+        }
+        /* активный пункт */
+        &.active{
+            div.list_arrow{
+                height: 28px;
+                width: 28px;
+                border-radius: 50px;
+                border-width: 2px;
+                /* Раскрывающийся список */
+                &.flippable{
+                    /* Завершенный урок */
+                    &.lesson_completed{
+                        color: $main_button_color; /* #35c486; */
+                        border-color: $main_button_color; /* #35c486; */
+                        /* свернутый список */
+                        &.collapse{
+
+                        }
+                        /* Развернутый список*/
+                        &.expand{
+                            transform:rotate(0); /* возвращаем иконку стрелки в исходное положение - вниз */
+                        }     
+                    } 
+                    /* Незавершенный урок */
+                    &.lesson_incomplete{
+                        /* свернутый список */
+                        &.collapse{
+
+                        }
+                        /* Развернутый список*/
+                        &.expand{
+                            transform:rotate(0); /* возвращаем иконку стрелки в исходное положение - вниз */
+                        }                     
+                    }
+
+                }
+                /* Нераскрывающийся список */
+                &.collapse:not(.flippable){
+                    i.fa{
+                        display:none;
+                    }
+                    /* Завершенный урок */
+                    &.lesson_completed{
+                        color: $main_button_color; /* #35c486; */
+                        border-color: $main_button_color; /* #35c486; */ 
+                    } 
+                    /* Незавершенный урок */
+                    &.lesson_incomplete{
+                        /* свернутый список */
+                        &.collapse{
+
+                        }
+                        /* Развернутый список*/
+                        &.expand{
+
+                        }                     
+                    }
+
+                } 
+            }
+
+        }   
+    }
+
+}
+    
+/* /  (BuddyBoss) Курс прогресс */
+
+
 /* иконка перед заголовком курса */
 /*
 .widget-area .widget.widget_course_progress h3 a:before {

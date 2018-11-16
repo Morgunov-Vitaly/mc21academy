@@ -170,9 +170,33 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /**
+* Стилизуем элемент управления скоростью воспроизведения видеоплеера 
+*/
+
+.mv_video_control input[type=radio]+label:before,
+.mv_video_control input[type=radio]:checked+label:before {
+    display: none;
+}
+
+.mv_video_control input[type=radio]+label {
+    color: #fff;
+    background-color: #b4d2eb;
+    padding: 5px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.mv_video_control input[type=radio]:checked+label,
+.mv_video_control input[type=radio]:checked+label:hover,
+.mv_video_control input[type=radio]+label:hover{
+    background-color: #4d96cf;
+}
+p.mv_video_control{
+    text-align: center;
+}
+/**
 *
 *   Исправляем косяки темы 
-*  
+*   
 */
 
 /* Отображение svg единичных картинок - в случае с svg не работало */

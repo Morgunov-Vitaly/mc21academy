@@ -89,16 +89,21 @@ function mv_login_logo() {
 add_action('login_enqueue_scripts', 'mv_login_logo');
 
 /* перенаправляем на страницу У вас нет доступа к данной информации при клике на курс незарегисрированными пользователями */
-/* редирект на страницу у вас нет доступа к данному контенту */
-/* add_filter("learndash_access_redirect", function($link, $post_id) { 
+/* редирект на страницу у вас нет доступа к данному контенту - работает, но это неудобно для пользователей :( */
+/*
+add_filter("learndash_access_redirect", function($link, $post_id) { 
   //Modify the $link here
   $link = home_url() . '/noaccess';
+  PC::debug($link);
   return $link;
   }, 10, 2);
- */
-/*  сообщение об отсутствии прав доступа */
+*/ 
+
+
+/*  сообщение об отсутствии прав доступа - не работает! :( */
 add_filter("learndash_content_access", function($restriction_message, $post) {
     $restriction_message = 'Сожалеем, но у вас нет доступа к даннной информации :(';
+    PC::debug($restriction_message);
 }, 5, 2);
 
 /*
@@ -162,3 +167,14 @@ function mv_admin_styles() {
   wp_enqueue_style('mv-admin-styles', get_stylesheet_directory_uri() . '/mv_admin_style.css');
 }
 add_action('admin_enqueue_scripts', 'mv_admin_styles');
+
+/**
+ *  Подключаем пользовательские шорткоды - читай мои 
+ */
+
+
+/**
+ * plugin_dir_path()
+ *  Может быть использована для получения полного системного пути до каталога любого файла. Это не обязательно это должен быть файл плагина. 
+ */
+require_once( plugin_dir_path( __FILE__ ) . 'shortcodes/shortcodes.php' );
