@@ -252,7 +252,10 @@ a.ab-item,
 *   Виджет прогресса курса
 *   
 */
-
+/* активный пункт темы в списке виджета Прогресс курса*/
+li .topic_item a.current span {
+    font-weight: 700;
+}
 
 div.learndash_nevigation_lesson_topics_list {
 
