@@ -9,19 +9,18 @@
  */
 
 /* Включаем дебаг почты */
+
 // define the wp_mail_failed callback 
-function action_wp_mail_failed($wp_error) 
-{
+function action_wp_mail_failed($wp_error) {
     return error_log(print_r($wp_error, true));
 }
-          
+
 // add the action 
 add_action('wp_mail_failed', 'action_wp_mail_failed', 10, 1);
 
 /**
  * Создаем страницу настроек плагина
  */
-
 add_action('admin_menu', 'add_mv_plugin_page');
 
 function add_mv_plugin_page() {
@@ -274,7 +273,6 @@ function mv_email_admin_plugin_settings() {
 //                $val = strip_tags( $val );
 //            }             
 //        }
-
         //die(print_r( $options )); // Array ( [input] => aaaa [checkbox] => 1 )
 
         return $options;
@@ -327,12 +325,12 @@ function wp_new_user_notification($user_id, $deprecated = null, $notify = '') {
         $mv_options = get_option('mv_email_admin_option');
         $mv_subject = $mv_options['mv_subject'] ? $mv_options['mv_subject'] : __('New User Registration mv-email-admin'); // Тема письма
         $mv_main_address = $mv_options['main_address'] ? $mv_options['main_address'] : get_option('admin_email'); // Главный адресат рассылки main_address
-        $message = $mv_options['mv_message'] ? $mv_options['mv_message'] : sprintf(__('New user registration on your site %s:'), $blogname) . " <br>";  //Текст сообщения 
+        $message = $mv_options['mv_message'] ? $mv_options['mv_message'] : sprintf(__('New user registration on your site %s:'), $blogname) . "\r\n\r\n";  //Текст сообщения 
         $cc_mail = $mv_options['cc_emails_list'] ? $mv_options['cc_emails_list'] : null; // Копии письма - адресаты cc_emails_list
         $mv_filds_meta_field_string = $mv_options['mv_filds_meta'] ? $mv_options['mv_filds_meta'] : null; // мета опции полей с данными о пользователе
 
         /* translators: %s: site title */
-        
+
         /**
          * explode(";", $mv_filds_meta_field_string);
          * разбивает строку $mv_filds_meta_field_string на элементы массива по разделителю ";" mv_filds_meta  из  mv_email_admin_option[mv_filds_meta]
@@ -352,27 +350,27 @@ function wp_new_user_notification($user_id, $deprecated = null, $notify = '') {
                 /* Вытаскиваем значения полей BuddyPress xprofile  */
                 $mv_option = xprofile_get_field_data($mv_field_id, $user_id); // Забираем параметр
                 if ($mv_option) {
-                    $message .= $mv_field_name . ": " . strip_tags($mv_option) . "\n"; // Добавляем параметр
+                    $message .= $mv_field_name . ": " . strip_tags($mv_option) . "\r\n"; // Добавляем параметр
                 }
             }
         }
 
         /* translators: %s: user login */
-        $message .= "ID Пользователя: " . $user_id . "\n";
-        
-        $message .= sprintf(__('Username: %s'), $user->user_login) . "\n";
+        $message .= "ID Пользователя: " . $user_id . "\r\n";
+
+        $message .= sprintf(__('Username: %s'), $user->user_login) . "\r\n";
 
         /* translators: %s: user email address */
         $message .= sprintf(__('Email: %s'), $user->user_email); //. "\r\n"
 
         $admin_email = get_option('admin_email');
-			if ( empty( $admin_email ) ) {
-				$admin_email = 'noreply@mc21academy.ru';
-			}
-                        
+        if (empty($admin_email)) {
+            $admin_email = 'noreply@mc21academy.ru';
+        }
+
         $headers = array(
             "From: \"{$blogname}\" <{$admin_email}>\n",
-            "Content-Type: text/plain; charset=\"" . get_option( 'blog_charset' ) . "\"\n",
+            "Content-Type: text/plain; charset=\"" . get_option('blog_charset') . "\"\n",
             "Cc: " . $cc_mail . "\n",
             "reply-to: " . $user->user_email . "\n",
         );
@@ -405,8 +403,8 @@ function wp_new_user_notification($user_id, $deprecated = null, $notify = '') {
          */
         $wp_new_user_notification_email_admin = apply_filters('wp_new_user_notification_email_admin', $wp_new_user_notification_email_admin, $user, $blogname);
 
-        wp_mail(
-                $wp_new_user_notification_email_admin['to'], wp_specialchars_decode(sprintf($wp_new_user_notification_email_admin['subject'], $blogname)), $wp_new_user_notification_email_admin['message'], $wp_new_user_notification_email_admin['headers']);
+        @wp_mail(
+                        $wp_new_user_notification_email_admin['to'], wp_specialchars_decode(sprintf($wp_new_user_notification_email_admin['subject'], $blogname)), $wp_new_user_notification_email_admin['message'], $wp_new_user_notification_email_admin['headers']);
 
         if ($switched_locale) {
             restore_previous_locale();
@@ -435,17 +433,16 @@ function wp_new_user_notification($user_id, $deprecated = null, $notify = '') {
     $switched_locale = switch_to_locale(get_user_locale($user));
 
     /* translators: %s: user login */
+    $message = sprintf(__('Username: %s'), $user->user_login) . "\r\n\r\n";
+    $message .= __('To set your password, visit the following address:') . "\r\n\r\n";
+    $message .= '<' . network_site_url("wp-login.php?action=rp&key=$key&login=" . rawurlencode($user->user_login), 'login') . ">\r\n\r\n";
 
-    $message = sprintf(__('Username: %s'), $user->user_login) . " mv-email-admin 03  <br>";
-    $message .= __('To set your password, visit the following address:') . "<br>";
-    $message .= '<' . network_site_url("wp-login.php?action=rp&key=$key&login=" . rawurlencode($user->user_login), 'login') . "><br>";
-
-    $message .= wp_login_url(); //. "\r\n"
+    $message .= wp_login_url() . "\r\n";
 
     $wp_new_user_notification_email = array(
         'to' => $user->user_email,
         /* translators: Password change notification email subject. %s: Site title */
-        'subject' => __('[%s] Your username and password info mv-email-admin 04 '),
+        'subject' => __('[%s] Your username and password info'),
         'message' => $message,
         'headers' => '',
     );
