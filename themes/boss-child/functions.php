@@ -90,21 +90,21 @@ add_action('login_enqueue_scripts', 'mv_login_logo');
 
 /* перенаправляем на страницу У вас нет доступа к данной информации при клике на курс незарегисрированными пользователями */
 /* редирект на страницу у вас нет доступа к данному контенту - работает, но это неудобно для пользователей :( */
-/*
+
 add_filter("learndash_access_redirect", function($link, $post_id) { 
   //Modify the $link here
-  $link = home_url() . '/noaccess';
-  PC::debug($link);
+  $link = home_url() . '/noaccess'; // Может лучше на /wp-login.php или на 
+  //PC::debug($link);
   return $link;
-  }, 10, 2);
-*/ 
+  }, 10, 2); 
 
 
 /*  сообщение об отсутствии прав доступа - не работает! :( */
-add_filter("learndash_content_access", function($restriction_message, $post) {
-    $restriction_message = 'Сожалеем, но у вас нет доступа к даннной информации :(';
-    PC::debug($restriction_message);
-}, 5, 2);
+//add_filter("learndash_content_access", function($restriction_message, $post) {
+//    $restriction_message = 'Сожалеем, но у вас нет доступа к даннной информации :(';
+//    return $restriction_message;
+//    //PC::debug($restriction_message);
+//}, 5, 2);
 
 /*
  * 	Перенаправление на тест урока после завершения последней темы урока

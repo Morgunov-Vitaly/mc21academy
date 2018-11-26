@@ -377,7 +377,7 @@ dd.course_progress {
 }
 /* курс виджет прогресса полоса прогресса */
 .widget dd.course_progress div.course_progress_blue {
-    background-color: #efc81c;
+    background-color: $main_table_header_color; /* #efc81c; */
 }
 
 
