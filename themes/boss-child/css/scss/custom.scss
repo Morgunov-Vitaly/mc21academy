@@ -103,6 +103,30 @@
 
 /*/ элементы */
 
+/**
+* Скрываем Google ReCaptcha
+*/
+.grecaptcha-badge {
+    display: none;
+}
+p.GoogleTerms{
+    font-size: 12px;
+    color: #b5b5b5;
+    margin: 10px 0;
+}
+p.GoogleTerms a{
+    font-size: 12px;
+    color: #fff;
+}
+p.GoogleTermsOnForms{
+    font-size: 12px;
+    color: #666;
+    margin: 10px 0;
+}
+p.GoogleTermsOnForms a{
+    font-size: 12px;
+    color: $main_link_color;
+}
 
 /* Глобальные стили */
 
@@ -118,7 +142,7 @@ a {
         color: $main_link_hover_color; 
     }
 }
- 
+
 /**
 *   Цвет иконок 
 */
@@ -629,6 +653,10 @@ span.edit-link a.post-edit-link:hover:before{
     body.page:not(.buddypress).events-page .site-content article:not(.comment) .events-list-content {
         padding: 20px 10px 10px 10px;
     }
+    /* Включить отображение правого меню на мобильных дисплеях - разработчики ошиблись названиями - это панель справа! */
+    #left-panel #nav-menu {
+        display: block;
+    }
 
 }/* don't delete this closing bracket */
 
@@ -659,12 +687,12 @@ span.edit-link a.post-edit-link:hover:before{
 /* Скрываем на мобильных дисплеях меню BP из левого меню - оставляем там только основное меню навигации */ 
 /* В теге body появляется свойство is-mobile tablet -для планшетов и просто is-mobile для всех мобильных девайсов */
 .is-mobile .menu-buddypanel-container{
-    display: none;
+   display: none;
 }
 /* Скрываем на больших экранах меню BP из правого меню  пользователя */
 /* В теге body появляется свойство is-desktop */
 .is-desktop .pop .ab-sub-wrapper {
-        display: none;
+    display: none;
 }
 @media screen and (max-width: 1039px) {
     /* Скрываем на мобильных дисплеях меню BP из левого меню - оставляем там только основное меню навигации */    

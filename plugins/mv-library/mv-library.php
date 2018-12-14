@@ -48,15 +48,13 @@ add_shortcode('mv-library', 'mv_library_function');
 
 function mv_library_function() {
     
-    /* Подключаем внешний файл */
-    require_once( plugin_dir_path( __FILE__ ) . 'app/index.php' );
+    echo '<div id="app"></div>';   
      
 }
 
 /**
  * Подключаем скрипты и стили
  */
-/* Подключаем стили  */
 
 add_action('wp_footer', 'enqueue_mv_library_js_css'); /* с хуком wp_footer выдает ошибку нужно либо добавить условие на существование $post->post_content либо юзать wp_enqueue_scripts */
 /* Подвешиваем к хуку функцию подключения стилей */
@@ -68,28 +66,20 @@ function enqueue_mv_library_js_css() {
         // если в контенте есть шорткод [mv-library]
 
         /* Подключаем скрипты */
-        
         //Регистрируем
-        wp_register_script('mv_library_vue_js', plugins_url('js/vue.js', __FILE__));
-        wp_register_script('mv_library_vue_res_js', plugins_url('js/vue-resource.js', __FILE__), array('mv_library_vue_js'));
-        wp_register_script('mv_library_vue_router_js', plugins_url('js/vue-router.js', __FILE__), array('mv_library_vue_res_js'));
-        wp_register_script('mv_library_vue_app_js', plugins_url('js/app.js', __FILE__), array('mv_library_vue_router_js'));
+	wp_register_script('mv-library_js', plugins_url('js/build.js', __FILE__)); 
         //Подключаем
-        wp_enqueue_script('mv_library_vue_js');
-        wp_enqueue_script('mv_library_vue_res_js');
-        wp_enqueue_script('mv_library_vue_router_js');
-        wp_enqueue_script('mv_library_vue_app_js');
+	wp_enqueue_script('mv-library_js');
         /* / Подключаем скрипты */
 
         /* Подключаем стили */
-        
         //Регистрируем
-        // wp_register_style('mv_library_css', plugins_url('css/library-style.css', __FILE__));
+        wp_register_style('mv_library_css', plugins_url('css/smart-grid.css', __FILE__));
         //Подключаем
-        // wp_enqueue_style('mv_library_css');
-
+        wp_enqueue_style('mv_library_css');
         /* / Подключаем стили */
 
-        /* / Подключаем скрипты и стили  */
+    
     }
 }
+/* / Подключаем скрипты и стили  */

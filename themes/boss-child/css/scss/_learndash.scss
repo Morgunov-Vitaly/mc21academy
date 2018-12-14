@@ -15,6 +15,28 @@ and open the template in the editor.
 }
 
 /**
+* Стили выделенного текста в описании курсов Уроков и Тем
+*/
+.lms-post-content b,
+.lms-post-content strong {
+    font-size: inherit;
+    margin-bottom: 26px;
+    line-height: 1.7;
+    text-align: left;
+    font-weight: 600;
+}
+
+.mv_acc_info span.vc_tta-title-text {
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 25px;
+}
+.mv_acc_info p{
+    color: #fff;
+    font-size: 14px;
+}
+
+/**
 *   Карточки курса
 */
 
@@ -108,8 +130,9 @@ and open the template in the editor.
 
 /* LearnDash  кнопка Подробнее карточки курса */
 #course-details #btn-join, #learndash_course_certificate,
-#learndash_course_status, .sfwd-courses a.button,
-.sfwd-lessons a.button, .type-sfwd-courses a.button,
+.sfwd-courses a.button,
+.sfwd-lessons a.button,
+.type-sfwd-courses a.button,
 .type-sfwd-lessons a.button{
     @include mix-button-alternative;
     &:hover{
@@ -128,6 +151,17 @@ and open the template in the editor.
     font-weight: 500;
 }
 
+/* Статус прохождения курса */
+#learndash_course_status{
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    background-color: none; /* !important */
+    border-color: $footer_bottom_color; /* !important */
+    color: $footer_bottom_color;
+}
 
 /**
 *   Главная страница курса
@@ -227,6 +261,20 @@ a.button.send-message-button {
 }
  
 /* Навигация по курсу кнопки "следующий урок тема" Кнопка "вернуться к уроку"  */
+#post-entries .nav-next,
+#post-entries .nav-prev{
+    min-width: 195px;
+}
+
+/* на маленьких дисплеях */
+@media screen and (max-width: 440px){
+    #post-entries .nav-next,
+    #post-entries .nav-prev{
+        width: 100%;
+        text-align: center;
+    }
+}
+
 a.next-link,
 a.prev-link{
     line-height: 45px;    
