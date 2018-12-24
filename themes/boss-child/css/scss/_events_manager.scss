@@ -32,6 +32,28 @@ body.single-event .event-location {
     color: $main_color;
 }
 
+/* Пагинация мероприятий по категориям */
+/* ссылка стрелки */
+
+.em-pagination a,
+.em-pagination strong,
+.em-pagination a.prev.page-numbers,
+.em-pagination a.next.page-numbers{
+    color: inherit;
+    border-radius: 50px;
+    border: 2px solid $alternative_text_color;
+    &:hover{
+        color: $alternative_text_color;
+    }
+}
+.em-pagination a{
+    color: $alternative_text_color;
+}
+.em-pagination strong{
+    border-color: $dark_background_color;
+    color: $dark_background_color;
+}
+
 /* Страница редактирвоания брони - обводка области текста */
 iframe#em-editor-content_ifr {
     border: 2px solid #35c486; 

@@ -179,6 +179,16 @@ p.bp-group-discussion {
 
 /* Кнопка начать xAPI урок-презентацию  */
 a.nivo_iframe {
+    color: #373838;
+    background-color: #fecf01;
+    padding: 20px 40px;
+    border-radius: 50px;
+    &:hover{
+        color: #373838; 
+        background-color: #e8bd01;
+    }
+}
+/*a.nivo_iframe {
     color: $alternative_button_text_color;
     background-color: $alternative_button_color;
     padding: 10px 40px;
@@ -187,7 +197,7 @@ a.nivo_iframe {
         color: $alternative_button_hover_text_color; 
         background-color: $alternative_button_hover_color;
     }
-}
+}*/
 
 /*  Главная страница курса Переключатели Развернуть все Свернуть все  */
 .expand_collapse a {
@@ -497,8 +507,8 @@ a.button.mv_reply{
 /* кнопка записаться на курс */
 a#btn-join,
 a#btn-join:visited {
-    color: $alternative_button_text_color;
-    background-color: $alternative_button_color;
+    color: $bright_button_text_color;
+    background-color: $bright_button_color;
     padding: 15px 35px;
     border-radius: 50px;
     line-height: inherit;
@@ -507,6 +517,6 @@ a#btn-join:hover,
 a#btn-join:focus,
 a#btn-join:active
  {
-  color: $alternative_button_hover_text_color;
-  background-color: $alternative_button_hover_color;
+  color: $bright_button_hover_text_color;
+  background-color: $bright_button_hover_color;
 }
