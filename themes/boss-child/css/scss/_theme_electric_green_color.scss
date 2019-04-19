@@ -8,10 +8,26 @@ and open the template in the editor.
     Author     : Моргунов Виталий
 */
 
-$main_color: #35c486; /* Главный цвет заменить им в последнюю очередь нижележащие совпадения */
-$main_text_color: #6b6b6b; /* Главный цвет текста */
-$main_header_color: #6b6b6b; /* Главный цвет заголовков */
-$main_icons_color: #79d9b2; /* Главный цвет иконок в тексте */
+/* Оттенки серого */
+$grey-dark: #6b6b6b; /* темный */
+$grey-light-dark: #999; /* темнее */
+$grey-middle: #b5b5b5; /* средний */
+$grey-light: #e4e6e5; /* светлый */
+$grey-lighter: #f3f3f3; /* Самый светлый */
+
+/* Оттенки зеленого */
+/* Оттенки серого */
+$green-darker: #1e8a65; /* самый темный -  потерял цвет */
+$green-dark: #139c6e; /* темный */
+$green-light-dark: #16ac79; /* темнее */
+$green-middle: #35c486; /* средний */ /* надо добавить #27b980 */
+$green-light: #6dd7a2; /* #79d9b2 светлый */
+$green-lighter: #c7f3d4; /* Самый светлый */ 
+
+$main_color: $green-middle; /* Главный цвет заменить им в последнюю очередь нижележащие совпадения */
+$main_text_color: $grey-dark; /* Главный цвет текста */
+$main_header_color: $grey-dark; /* Главный цвет заголовков */
+$main_icons_color: $green-light; /* Главный цвет иконок в тексте */
 
 /* Ссылки */
 $main_link_color: #1876c1; /* #2196f3; #58a1da*/
@@ -19,21 +35,21 @@ $main_link_hover_color: #2196f3;/*#6fbaf7; #58a1da  */
 
 /* Светлый фон */
 $light_background_color: #fafafa; 
-$light_background_text_color: #16ac79;
+$light_background_text_color: $green-light-dark;
 
 /* Темный акцентный фон */
-$dark_background_color: #16ac79;
-$dark_background_hover_color: #139c6e;
+$dark_background_color: $green-light-dark;
+$dark_background_hover_color: $green-dark;
 $dark_background_text_color: #fff;
 
-/* Кнопки */
-$main_button_color: #35c486;
+/* Кнопки зеленые */
+$main_button_color: $green-middle;
 $main_button_text_color: #fff;
-$main_button_hover_color: #16ac79;
+$main_button_hover_color: $green-light-dark;
 $main_button_hover_text_color: #fff;
 
 /* Таблицы */
-$main_table_header_color: #6dd7a2; /*  #c7f3d4 */
+$main_table_header_color: $green-light; /*  #c7f3d4 */
 $main_table_header_text_color: #fff;
 $main_table_header_link_color: #fff;
 $main_table_header_link_hover_color: #fff; /* #35c486; */
@@ -47,50 +63,50 @@ $course_banner_link_color: $main_link_color;
 $course_banner_link_hover_color: $main_link_hover_color;
 $course_banner_tags_color: #fff; /* $alternative_button_color */
 /* BuddyPanel */
-$main_nav_color: #35c486;
+$main_nav_color: $green-middle;
 $main_nav_text_color: #fff;
-$main_nav_hover_color: #27b980;
-$main_nav_hover_color2: #16ac79;
+$main_nav_hover_color: $green-middle;
+$main_nav_hover_color2: $green-light-dark;
 $main_nav_hover_text_color: #ffffffcf;
-$dark_icon_color: #1e8a65;
-$light_icon_color: #35c486;
+$dark_icon_color: $green-darker;
+$light_icon_color: $green-middle;
 
-$main_sub_nav_color: #35c486;
+$main_sub_nav_color: $green-middle;
 $main_sub_nav_text_color: #fff;
-$main_sub_nav_hover_color: #27b980;
+$main_sub_nav_hover_color: $green-middle;
 $main_sub_nav_hover_text_color: $main_sub_nav_text_color;
 
 /* Навигация правого блока */
 $main_right_sub_nav_color: #fff;
-$main_right_sub_nav_text_color: #6b6b6b;
-$main_right_sub_nav_hover_color: #c7f3d4;
-$main_right_sub_nav_hover_text_color: #27b980;
+$main_right_sub_nav_text_color: $grey-dark;
+$main_right_sub_nav_hover_color: $green-lighter;
+$main_right_sub_nav_hover_text_color: $green-middle;
 
 /* ByddyPress */
-$bp_link-color: #999;
-$bp_link-hover-color: #35c486;
-$bp_link-active-color: #16ac79;
-$bp_navbar_color: #16ac79;
+$bp_link-color: $grey-light-dark;
+$bp_link-hover-color: $green-middle;
+$bp_link-active-color: $green-light-dark;
+$bp_navbar_color: $green-light-dark;
 $bp_user-banner-color: #436990;
-$bp_counter-color: #6dd7a2;
+$bp_counter-color: $green-light;
 
 /*  
 * Альтернативный цвет 
 */
 $alternative_color: #09729e;  /* #507abc #1876c1 */
-$alternative_text_color: #999; 
+$alternative_text_color: $grey-light-dark; 
 
 /* Ссылки */
-$alternative_link_color: #35c486; 
-$alternative_link_hover_color: #1e8a65; 
+$alternative_link_color: $green-middle; 
+$alternative_link_hover_color: $green-darker; 
 
-/* Кнопки */
+/* Кнопки синие */
 $alternative_button_color: #2c82c6; /* #03a9f4 #4d96cf; #2196f3 */
 $alternative_button_text_color: #fff;
 $alternative_button_hover_color: #3171a5; /* #2196f3; */
 $alternative_button_hover_text_color: $alternative_button_text_color;
 
-/* Яркая кнопка */
+/* Яркая кнопка пурпурная */
 $bright_button_color: #b97ebb; /* #03a9f4 #4d96cf; #2196f3 */
 $bright_button_text_color: #fff;
 $bright_button_hover_color: #966498; /* #2196f3; */
@@ -99,26 +115,26 @@ $bright_button_hover_text_color: $bright_button_text_color;
 /* Таблицы внутренние заголовки структуры курсов */
 $alternative_table_header_color: #edfaf4;
 $alternative_table_header_text_color: #7a8488; 
-$alternative_table_header_link_color: #c7f3d4;
-$alternative_table_header_link_hover_color: #35c486;
-$alternative_table_border_color: #e4e6e5;
+$alternative_table_header_link_color: $green-lighter;
+$alternative_table_header_link_hover_color: $green-middle;
+$alternative_table_border_color: $grey-light;
 /* Футер */
 /* верхний */
 $footer_top_color: #373838;
 $footer_top_text_color: #b5b5b5;
-$footer_top_link_color: #c7f3d4;
-$footer_top_link_hover_color: #35c486;
+$footer_top_link_color: $green-lighter;
+$footer_top_link_hover_color: $green-middle;
 /* нижний */
 $footer_bottom_color: #2f2f2f;
 $footer_bottom_text_color: #fff;
-$footer_bottom_link_color: #c7f3d4;
-$footer_bottom_link_hover_color: #35c486;
+$footer_bottom_link_color: $green-lighter;
+$footer_bottom_link_hover_color: $green-middle;
 
 /* Сообщения фон */
 $message_info: #27aeee; /* #2196f3 */
 $message_error: #ee277c;
-$message_success: #35c486;
-$message_warning: #35c486;
+$message_success: $green-middle;
+$message_warning: $green-middle;
 $message_text: #fff;
 
 /* Календарь */

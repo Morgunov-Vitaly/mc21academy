@@ -74,6 +74,16 @@ body.bp-user #buddypress div#item-header div#item-header-content .btn-group.soci
         float: none;
     }
 }
+
+/* Информация о наградах, статусах и баллах */
+
+ span.activity.gamipress-buddypress-rank-label.gamipress-buddypress-gplevels-label,
+ span.activity.gamipress-buddypress-user-points.gamipress-buddypress-user-gpcoins {
+    color: #fff;
+ }
+
+/* / Информация о наградах, статусах и баллах */
+
 /* Пункты навигации текущий пункт меню */
 #buddypress div#item-nav .item-list-tabs ul li.current>a,
 #buddypress div#item-nav .item-list-tabs ul li:hover>a {
@@ -339,10 +349,16 @@ div.indicator-hint {
 }
 
 /* Окно сообщений */
-#bbpress-forums div.bbp-topic-author,
+/* #bbpress-forums div.bbp-topic-author,
 #bbpress-forums div.bbp-reply-author{
     width: 100px;
 }
+@media screen and (max-width: 768px){
+    #bbpress-forums div.bbp-topic-author,
+    #bbpress-forums div.bbp-reply-author{
+        width: 100%;
+    }
+} */
 
 /* Кнопка Написать в Мои сообщения */
 .bp-user.messages #buddypress div#subnav.item-list-tabs ul li:first-child a{

@@ -70,7 +70,9 @@ iframe#em-editor-content_ifr {
     width: 100%;
 }
 
-/* BP мои мероприятия и мои места - Мой профиль */
+/**
+BP мои мероприятия и мои места - Мой профиль 
+*/
 
 /* Заголовок таблицы мероприятий */
 .bp-user.events #buddypress #posts-filter .events-table thead th,
@@ -81,29 +83,64 @@ iframe#em-editor-content_ifr {
     font-family: inherit;
     color: #fff;
 }
-/* Контейнер  селекта и кнопки сабмит */
+/**
+ Контейнер  селекта и кнопки сабмит 
+*/
 /* flex контейнер */
-.bp-user.events #posts-filter .search-box,
+.css-events-admin #posts-filter p.search-box,
 .tablenav .alignleft.actions{
     box-sizing: border-box;
-    width: auto!important;
-    display: -webkit-flex; 
+    width: calc(100% + 30px)!important;
     display: flex; /*отображает контейнер как блочный элемент*/ 
-    flex-flow: row wrap;
-    -webkit-justify-content: space-between;
-    justify-content:space-between;
+    flex-flow: row wrap;    
+    justify-content:flex-start;
     margin-left: -15px!important;
     margin-right: -15px!important;
     margin-bottom: 10px;
-    float: none;
-
+    /* float: none; */
 }
+
+/**
+* Мои места профиль BP и поиск и добавить мероприятие
+*/
+/* контейнер */
+.css-locations-admin .alignleft.actions{
+   /*  width: calc(100% + 30px); */
+}
+/* select - мертвый */
+/* окно селекта */
+.css-locations-admin .alignleft.actions span.select2.select2-container.select2-container--default,
+.css-events-admin #posts-filter p.search-box #post-search-input{
+    flex: 3 0 250px;
+    margin: 10px 15px
+}
+/* кнопка сабмита */
+.css-locations-admin input.button-secondary action,
+.css-events-admin #posts-filter p.search-box input[type='submit']{
+    flex: 1 1 250px;
+    margin: 10px 15px
+}
+/* Добавить мероприятие форма */
+.css-event-form span.select2.select2-container.select2-container--default,
+.inside.location-form-where span.select2.select2-container.select2-container--default{
+    min-width: 200px;
+    
+}
+/* / Мои места профиль BP */
+
+/**
+* Мои заказы профиль BP
+*/
+.css-bookings-admin{
+    
+}
+/* / Мои заказы профиль BP */
 
 /* селект мероприятий */
 /* поле ввода текста для поиска */
-.bp-user.events #posts-filter .search-box input[type=text],
+ /* .bp-user.events #posts-filter .search-box input[type=text],
 .bp-user.events.my-locations .tablenav .buddyboss-select{
-    /* width: calc(100% - 250px);*/
+     width: calc(100% - 250px);
     -webkit-flex-basis: 300px; 
     flex-basis: 300px;
     min-width: 280px;
@@ -114,7 +151,7 @@ iframe#em-editor-content_ifr {
     margin-bottom: 10px;
 
 
-}
+} */
 /* кнопка Искать Кнопка Применить  */
 .bp-user.events .search-box input[type=submit],
 .bp-user.events.my-locations .tablenav input[type=submit]{
@@ -123,15 +160,19 @@ iframe#em-editor-content_ifr {
     min-width: 220px;
     flex-grow: 1;
     flex-shrink: 1;
-    margin-left: 15px;
+    /* margin-left: 15px;
     margin-right: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
+    margin: auto 15px;
+    
 }
 
 /* Мероприятия профиль BP Отменяем отрицательный margin для блока  с информацией, т.к. раньше налезал на кнопку Добавить */
 .events .css-events-admin, .events .css-locations-admin{
     margin-top: 0;
 }
+
+
 
 /* Страница Мероприятия верхняя форма поиска с фильтром */
 body.events-page div.css-search,
@@ -214,11 +255,17 @@ div.css-search {
 }
 
 /* строка поиска */
+div.em-search.css-search div {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
 
 div.css-search input.em-search-text,
 div.css-search input.em-search-geo {
     width: 100%;
-    line-height: 30px;
+    line-height: 38px;
     border: 1px solid #e0e0e0;
     color: #252525;
     box-shadow: none;
@@ -226,7 +273,7 @@ div.css-search input.em-search-geo {
 
 /* кнопка найти */
 div.css-search div.em-search-main .em-search-submit {
-    height: 48px;
+    height: 40px;
     background: #35c486;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -239,7 +286,7 @@ div.css-search div.em-search-main .em-search-submit:hover {
 div.css-search div.em-search-advanced {
     display: flex;
     flex-wrap: wrap;
-    align-content: space-between;
+    align-content: flex-start;
     align-items: center;
 }
 
@@ -250,12 +297,12 @@ div.css-search div.em-search-advanced {
 
 div.css-search .em-search-scope input{
     height: auto;
-    line-height: 30px;
+    line-height: 38px;
 }
 
 /* форма фильтра поиска выбор дат Надпись Даты */
 span.em-search-scope.em-events-search-dates.em-date-range label > span {
-    display: inline-block;
+    display: inline-block; 
     float: none;
     width: auto;
     min-width: inherit;
@@ -264,7 +311,18 @@ span.em-search-scope.em-events-search-dates.em-date-range label > span {
 
 /* форма фильтра поиска выбор категории */
 .em-search-category.em-search-field {
-    flex: 0 0 200px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 200px;
+    line-height: 40px;
+    justify-content: space-between;
+    align-items:stretch;
+    
+    
+}
+.em-search-category.em-search-field label:first-child {
+   /*  line-height: 40px; */
+   margin-right: 3px;
 }
 
 /* Сайдбар Виджет Список мероприятий Цвета ссылкок  */

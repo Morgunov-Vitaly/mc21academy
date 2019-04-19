@@ -16,7 +16,7 @@ $font-size-small: 14px;
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i');
 $font-weight-light-main: 400;
-$font-weight-bold-main: 500;
+$font-weight-bold-main: 600;
 $font-weight-light-heading: 400;
 $font-weight-bold-heading: 500;
 
@@ -29,8 +29,8 @@ $font-weight-bold-heading: 500;
 } 
 
 @mixin mixfont-family-icon {
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900!important;  
+    font-family: 'FontAwesome', 'Font Awesome 5 Free';
+    font-weight: 900!important;     
 } 
 /* разбиение и перенос строк */
 @mixin mixwords-brakes {
@@ -44,7 +44,7 @@ $font-weight-bold-heading: 500;
 @mixin mixh1($header_color) {
     h1{
     @include mixfont-family-heading;
-    font-weight: $font-weight-bold-heading;
+    font-weight: $font-weight-light-heading; /* $font-weight-bold-heading; */
     font-size: 34px;
     line-height: 1.4;
     letter-spacing: -1px;

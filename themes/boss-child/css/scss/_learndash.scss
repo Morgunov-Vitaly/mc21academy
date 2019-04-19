@@ -8,10 +8,43 @@ and open the template in the editor.
     Author     : Моргунов Виталий
 */
 
+/* Страницы рубрик курсов - кривизна полная */
+.mega_info_box .mega-info-title{
+    font-weight: $font-weight-bold-heading!important;
+}
+
 /*Страница Все курсы */
 /* скрываем ярлык Рубрики */
-.buddyboss-select label {
+.buddyboss-select label,
+#ld_course_categorydropdown label {
     display: none;
+}
+/* стилизуем селект выбора категорий и рубрик курсов */
+.buddyboss-select{
+    width: 100%;
+    margin: 20px auto;
+}
+
+/* Селект выбора категорий в списке курсов и профилях BuddyPress? */
+.buddyboss-select-inner, 
+selected-tab {
+    height: 40px;
+    width: 100%;
+    clear: both;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    position: relative;
+    line-height: 22px;
+    display: block;
+    background-color: transparent;
+    color: $main_color;
+    text-transform: uppercase;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 2px solid $main_color;
+    box-sizing: border-box;
 }
 
 /**
@@ -23,7 +56,7 @@ and open the template in the editor.
     margin-bottom: 26px;
     line-height: 1.7;
     text-align: left;
-    font-weight: 600;
+    font-weight: $font-weight-bold-main;
 }
 
 .mv_acc_info span.vc_tta-title-text {
@@ -40,6 +73,21 @@ and open the template in the editor.
 *   Карточки курса
 */
 
+/*кастомная карточка курса - на основе Grid Builder */
+.mv-course-excerpt{
+    max-height: 250px;
+    overflow: hidden;   
+    height: 250px;
+    padding: 10px 15px;
+    }
+.mv-course-excerpt p a{    
+    font-size: 13px;
+    }
+@media screen and (max-width: 1024px){
+    .mv-course-excerpt a{    
+    font-size: 80%;
+}
+}
 /**
 * Скрываем автора курса
 */
@@ -148,7 +196,7 @@ and open the template in the editor.
 .ld-course-list-content h2 a {
     font-size: 20px;
     letter-spacing: -1px;
-    font-weight: 500;
+    font-weight: $font-weight-bold-heading;
 }
 
 /* Статус прохождения курса */
@@ -156,7 +204,7 @@ and open the template in the editor.
     font-size: 14px;
     line-height: 22px;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: $font-weight-bold-main;
     border: none;
     background-color: none; /* !important */
     border-color: $footer_bottom_color; /* !important */
@@ -312,16 +360,16 @@ a.prev-link:hover{
 .ld-item .completed:before,
 .learndash .completed:before,
 .learndash .topic-completed:before {
-    color: #35c486; /* !important */
+    color: $green-middle; /* !important */
 }
 
 .learndash_profile_quizzes .failed .scores,
 .learndash_profile_quizzes .passed .scores {
-    color: #35c486; /* !important */
+    color: $green-middle; /* !important */
 }
 
 .learndash_profile_quizzes .passed_icon:before {
-    color: #35c486; /* !important */
+    color: $green-middle; /* !important */
 }
 
 /* Курс значки состояния выполнения курса */
@@ -330,10 +378,15 @@ a.prev-link:hover{
 .ld-item .notcompleted:before,
 .learndash .notcompleted:before,
 .learndash .topic-notcompleted:before {
-    color: #e3e3e3; /* $main_color; */
+    color: $grey-middle; /* $main_color; */
     /*    #2196f3; */
 }
+#learndash_profile #course_list h4>a.notavailable:after,
+.ld-item .notavailable:before,
+.learndash .notavailable:before {
+    color: $grey-lighter;
 
+}
 
 #learndash_profile #course_list h4>a.in-progress:after,
 .ld-item .in-progress:before,
@@ -420,8 +473,8 @@ a.prev-link:hover{
 
 /*  Курс виджет прогресса раздел навигации по курсу меняем цвета стрелок */
 #course_navigation .learndash_topic_widget_list .topic-completed:after {
-    color: #35c486; /* !important */ 
-    background-color: #35c486; /* !important */ 
+    color: $green-middle; /* !important */ 
+    background-color: $green-middle; /* !important */ 
 }
 
 /* Полоса прогресса выполнения курса */
@@ -451,7 +504,7 @@ p.bp-group-discussion a.button{
 /*  Курс Урок  Список тем заголовок таблицы */
 #learndash_lesson_topics_list h2{
     background-color: #edfaee;
-    font-weight: 500;
+    font-weight: $font-weight-bold-heading;
 }
 
 /* BuddyPress профиль Все курсы надпись заголовка свернуть все развернуть все */
@@ -465,15 +518,98 @@ p.bp-group-discussion a.button{
 /* xAPI презентация кнопка Отметить завершенным */
 #quiz_continue_link,
 #sfwd-mark-complete input[type=submit],
-input[type=button]:not(.button-small).wpProQuiz_button[value="Finish quiz"] {
+#quiz_continue_link, #sfwd-mark-complete input[type=submit],
+.single-sfwd-lessons u+table td .button-primary,
+input[type=button]:not(.button-small).wpProQuiz_button,
+input[type=submit].wpProQuiz_button2{
     border-color: $alternative_button_color;
     color: $alternative_button_color;
+    border-radius: 50px;
+    padding: 6px 22px;
     &:hover{
         border-color: $alternative_button_hover_color;
         background-color: $alternative_button_hover_color;
         color: $alternative_button_hover_text_color;
+        box-shadow: none;
     }
 }
+/* кнопка показать вопросы теста */
+input[type=button]:not(.button-small).wpProQuiz_button[name=reShowQuestion]{
+    border-color: $main_button_color!important; /* долбанные разработчики нафигачили !important в своих стилях! */
+    color: $main_button_color!important;
+    &:hover{
+        border-color: $main_button_hover_color!important;
+        background-color: $main_button_hover_color!important;
+        color: $main_button_hover_text_color!important;
+        box-shadow: none;
+    }
+}
+/* Счетчик вопросов */
+.wpProQuiz_question_page{
+    color: inherit;
+}
+
+/* чекбоксы */
+.wpProQuiz_questionList input[type=checkbox]:checked+strong:after{
+        background-color: $green-light-dark;
+}
+
+
+/* 
+* Стилизуем тест
+*/
+.wpProQuiz_answerCorrect .wpProQuiz_sortStringItem {
+    border: 2px solid $green-middle;
+}
+
+/* Поле вопроса теста */
+.entry-content li.wpProQuiz_listItem{
+    background-color: $alternative_table_header_color;
+}
+/* Внутреннее поле вариантов ответа вопроса */
+.wpProQuiz_content .wpProQuiz_questionList{
+    background-color: $alternative_table_header_color;
+    border: none;
+}
+/* Поля вариантов ответа */
+.wpProQuiz_questionList[data-type=assessment_answer] label, .wpProQuiz_questionList[data-type=multiple] label, .wpProQuiz_questionList[data-type=single] label{
+    border: 2px solid #c9c9c9;
+    border-radius: 20px;
+}
+
+
+/* Результаты выбора ывопросов Верно Неверно */
+.wpProQuiz_response>div{
+/*    margin-bottom: 0;*/
+}
+/* рамка */
+.wpProQuiz_content .wpProQuiz_response{
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+/* фон */
+.wpProQuiz_response .wpProQuiz_correct {
+    background-color: #35c486;
+    border-radius: 5px;
+}
+
+.wpProQuiz_response .wpProQuiz_incorrect{
+    background-color:#f4524d;
+    border-radius: 5px; 
+}
+/* Текст */
+.wpProQuiz_response .wpProQuiz_correct,
+.wpProQuiz_response .wpProQuiz_correct p,
+.wpProQuiz_response .wpProQuiz_incorrect,
+.wpProQuiz_response .wpProQuiz_incorrect p{
+    color: #ffffff;
+}
+
+/* / Стилизуем тест */
 
 button[disabled],
 input[disabled],
@@ -519,4 +655,116 @@ a#btn-join:active
  {
   color: $bright_button_hover_text_color;
   background-color: $bright_button_hover_color;
+}
+
+
+/* Элементы пагинации уроков/тем  */
+.learndash_nevigation_lesson_topics_list>div.learndash-pager {
+    display: flex;
+}
+
+/**
+* TinCan reporting стилизация вывода отчетов 
+*/
+/* Блок вывода отчета - для мобильных экранов */
+@media (max-width: 768px){
+    .uo-tclr-admin.uo-admin-reporting {
+        width: auto;
+    }
+    .uo-admin-reporting-tabgroup .uo-admin-reporting-tab-single{
+        padding: 20px 5px;
+    }
+}
+/* дашборда - вывод диаграм */
+.uo-reporting-dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+/* блок вывода инфовиджетов дашборда */
+.reporting-dashboard-col-container{
+    flex: 1 1 300px; 
+}
+
+/* Стилизация вкладок отчетов */
+ul.uo-admin-reporting-tabs.clearfix {
+    margin: 0;
+}
+.uo-admin-reporting-tabs li {
+    width: auto;
+    max-width: 180px;
+    padding: 0;
+    margin: 0 15px 0 0!important;
+}
+
+.uo-admin-reporting-tabs li a {
+    padding: 15px 10px;
+}
+
+/* Плавающий блок выбора групп */
+.uo-tclr-admin.uo-admin-reporting > div {
+   position: inherit!important;
+   /* right: 115px!important;
+     top: 80px;
+     min-width: 350px; */ 
+}
+.uo-tclr-admin.uo-admin-reporting form{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    align-items: center;
+}
+/* селект групп */
+.uo-tclr-admin.uo-admin-reporting>div .buddyboss-select{
+    flex: 1 1 300px;
+}
+/* submit кнопка для селекта групп */
+.uo-tclr-admin.uo-admin-reporting>div input[type="submit"]{    
+    flex: 0 0 50px;
+    line-height: 16px;
+    margin-left: 3px;
+}
+
+
+/* / TinCan reporting стилизация вывода отчетов */
+
+
+/**
+* GamiPress стилизация 
+*/
+/* название уровня в виджете */
+h2.gamipress-rank-title {
+    font-size: 16px;
+    font-weight: $font-weight-bold-heading;
+}
+/* количество монет в виджете */
+span.gamipress-user-points-amount {
+    margin: auto 15px;
+    font-size: 16px;
+    font-weight: $font-weight-bold-heading;
+}
+/* скрываем отображение монет и уровня из баннера личного профиля */
+.gamipress-buddypress-points,
+.gamipress-buddypress-ranks{
+    display: none;
+}
+/* Вывод монет в шапке сайта */
+#gamipress-points-in-header{
+    display: inline-block;
+    line-height: 74px;
+/*    display: none; */
+}
+#gamipress-points-in-header img {
+    vertical-align: middle;
+    margin: 0 3px 0 15px;
+}
+.single-rank .gamipress-rank-image img.gamipress-rank-thumbnail.wp-post-image,
+.single-achievement .gamipress-achievement-image img.gamipress-achievement-thumbnail.wp-post-image{
+    max-width: 350px;
+}
+/* Вывод на странице статистики награждений - по шорткоду */
+#gamipress-earnings-table img.gamipress-achievement-thumbnail.wp-post-image,
+#gamipress-earnings-table img.gamipress-rank-thumbnail.wp-post-image{
+    max-width: 50px;
 }

@@ -69,20 +69,25 @@ a.register:before{
 
 /**
 * главная навигация - основное меню
-*
 */
 
 /* Исправляем баги и косяки темы */
-.menu-item.dropdown > a.open-submenu:not(.fa-angle-down){ 
+#header-menu ul li.menu-item.dropdown>a.open-submenu i:not(.fa-angle-down){ 
 display:none;
 }
 
-.menu-item-has-children .sub-menu .menu-item-has-children a.open-submenu ~ a.open-submenu{
+#header-menu .menu-item-has-children .sub-menu .menu-item-has-children a.open-submenu ~ a.open-submenu i:not(.fa-angle-down){
 display:none!important;
-}
+}  /* выпустили обновление с исправлением этого косяка - пробуем  - нихера не работает! */
 /* / Исправляем баги и косяки темы */
 
-
+/* 
+* Навигация по рубрикам курсов 
+*/
+.active h3 {
+    background-color: #f2f2f2;
+}
+/* /Навигация по рубрикам курсов */
 
 /* Пункты меню */
 .header-inner .left-col a,
@@ -106,6 +111,52 @@ display:none!important;
 .header-navigation li.hideshow>ul{
     border-top: 1px solid $main_color;
 }
+
+/* Ширина выпадающего меню личного кбинета BuddyPress при частичном скрытии за многоточием */
+li.hideshow>ul{ 
+    min-width: 300px; 
+}
+
+/* Стилизуем иконки курса, отчетов и событий для мобильной версии меню личного кабинета */
+/* мои события */
+#mobile-item-nav ul li#events-personal-li:before {
+   @include mixfont-family-icon;
+/*    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;*/
+    content: "\f073";
+}
+/* мои курсы */
+#mobile-item-nav ul li#courses-personal-li:before {
+   @include mixfont-family-icon;
+
+    content: "\f19d"; /* f212 */
+}
+/* мои достижения */
+#mobile-item-nav ul li#achievements-personal-li:before {
+   @include mixfont-family-icon;
+    content: "\f091";
+}
+/* Сводный отчет  */
+#mobile-item-nav ul li#menu-item-6372:before {
+   @include mixfont-family-icon;
+    content: "\f200";
+}
+/* Групповой отчет */
+#mobile-item-nav ul li#menu-item-6371:before {
+   @include mixfont-family-icon;
+    content: "\f201";
+}
+/* мои отчеты мои тесты */
+#mobile-item-nav ul li#menu-item-6379:before {
+   @include mixfont-family-icon;
+    content: "\f080";
+}
+/* Отчеты Pro Panel */
+#mobile-item-nav ul li#menu-item-6489:before {
+   @include mixfont-family-icon;
+    content: "\f1fe";
+}
+
 
 /* основное меню 3-го уровня */
 .header-navigation .sub-menu .sub-menu{
@@ -201,6 +252,13 @@ a.ab-item,
 
 /* / сайдбары */
 
+/* Кастомный виджет навигации - меню по отчетам */
+li.current_page_item a {
+    color: #35c486;
+}
+
+
+
 /* Панель вверху справа top right header panel */
 .site-header .right-col {
     color: #fff; /* !important */
@@ -216,6 +274,7 @@ a.ab-item,
 /* стилизуем иконки писем, уведомлений и корзины в верхнем правом углу хедера  */
 .header-notifications{
     padding-right: 0;
+    line-height: 73px; /* theme bugfix  какого-то хрена после обновления поплыл навбар - откуда-то появились лишние 2 пиксела - девтул показывает неточное определение высоты inline елемента */
 }
 
 /* Задаем цвет под логотипом при отключенной ByddyPress панели */
@@ -252,16 +311,29 @@ a.ab-item,
 *   Виджет прогресса курса
 *   
 */
-/* активный пункт темы в списке виджета Прогресс курса*/
-li .topic_item a.current span {
-    font-weight: 700;
+/* Название курса */
+.widget_course_progress h4.widgettitle{
+    background-color: #edfaf4;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 30px 0 30px;
+    text-transform: none;
+    color: #7c7c7c;
+    margin-bottom: -20px;
+    /* display: none; */
 }
-
-div.learndash_nevigation_lesson_topics_list {
-
+/* Все пункты виджета прогресса 'Курс Прогресс' */
+.list_arrow.collapse:not(.flippable){
+    opacity: 1; /* вернем нормальную прозрачность */
+}
+#course_navigation div.learndash_nevigation_lesson_topics_list {
     div.bb-lesson-list-item{
         /* неактивный пункт */
         &.inactive{
+            a{
+                text-decoration: none;
+                font-weight: $font-weight-light-main; /* 400; */
+            }
             div.list_arrow{
                 height: 28px;
                 width: 28px;
@@ -323,6 +395,16 @@ div.learndash_nevigation_lesson_topics_list {
         }
         /* активный пункт */
         &.active{
+            .lesson a{ /* надо уточнить, что речь только об уроках */
+                text-decoration: underline;
+                font-weight: $font-weight-bold-main; /* 600; */
+
+            }
+            /* активный пункт Темы урока в списке виджета Прогресс курса */
+            ul li .topic_item a.current span {
+                text-decoration: underline;
+                font-weight: $font-weight-bold-main; /* 600; */
+            }
             div.list_arrow{
                 height: 28px;
                 width: 28px;
@@ -540,7 +622,8 @@ body.left-menu-open .menu-panel #nav-menu>ul>li.current-menu-item > a:before{
 }
 
 /* Пункт активного меню в мобильной версии */
-.menu-panel #header-menu>ul>li.current-menu-item>a,
+.menu-panel #header-menu>ul>li.current-menu-item>a, 
+body .menu-panel #nav-menu>ul>li.current-menu-item>a:not(.open-submenu):before,
 .menu-panel #nav-menu>ul>li.current-menu-item>a{
     color: #fff;  
 }
@@ -567,6 +650,7 @@ body:not(.tablet) .menu-panel .bp_components ul li ul li.menupop:hover > a:befor
 
 /* Меню подпункты */
 .menu-panel #header-menu ul .sub-menu-wrap a,
+.menu-panel #header-menu>ul li a i,
 .menu-panel ul li a,
 .menu-panel ul li div.ab-item{
     color: $main_sub_nav_text_color;
